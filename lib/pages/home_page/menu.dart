@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sarasotaapp/colors.dart';
 import 'package:sarasotaapp/pages/home_page/apps.dart';
-
 import 'package:sarasotaapp/pages/privacypolicy.dart';
 import 'package:sarasotaapp/pages/home_page/socialmedia.dart';
-
 import 'package:url_launcher/url_launcher.dart';
 
 class Menu extends StatelessWidget {
@@ -17,6 +14,7 @@ class Menu extends StatelessWidget {
         Column(
           children: [
             Container(
+              alignment: Alignment.centerLeft,
               child: Text(
                 'Back to Home',
                 style: TextStyle(color: Color(0xFF629dc8), fontSize: 16),
