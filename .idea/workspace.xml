@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="790f1074-a8f8-465c-9eeb-3c4fe12a95fa" name="Default Changelist" comment="" />
+    <list default="true" id="790f1074-a8f8-465c-9eeb-3c4fe12a95fa" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/b0e03bc321a96e9636970bd44aecab6d/debug_ios_bundle_flutter_assets.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/b0e03bc321a96e9636970bd44aecab6d/debug_ios_bundle_flutter_assets.stamp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/b0e03bc321a96e9636970bd44aecab6d/flutter_assets.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/b0e03bc321a96e9636970bd44aecab6d/flutter_assets.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,21 +51,37 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state width="2006" height="371" key="GridCell.Tab.0.bottom" timestamp="1616533357836">
+    <state width="1003" height="371" key="GridCell.Tab.0.bottom" timestamp="1616785767454">
       <screen x="0" y="25" width="2560" height="1325" />
     </state>
-    <state width="2006" height="371" key="GridCell.Tab.0.bottom/0.25.2560.1325@0.25.2560.1325" timestamp="1616533357836" />
-    <state width="2006" height="371" key="GridCell.Tab.0.center" timestamp="1616533357835">
+    <state width="1003" height="371" key="GridCell.Tab.0.bottom/0.25.2560.1325@0.25.2560.1325" timestamp="1616785767454" />
+    <state width="1003" height="371" key="GridCell.Tab.0.center" timestamp="1616785767454">
       <screen x="0" y="25" width="2560" height="1325" />
     </state>
-    <state width="2006" height="371" key="GridCell.Tab.0.center/0.25.2560.1325@0.25.2560.1325" timestamp="1616533357835" />
-    <state width="2006" height="371" key="GridCell.Tab.0.left" timestamp="1616533357835">
+    <state width="1003" height="371" key="GridCell.Tab.0.center/0.25.2560.1325@0.25.2560.1325" timestamp="1616785767454" />
+    <state width="1003" height="371" key="GridCell.Tab.0.left" timestamp="1616785767454">
       <screen x="0" y="25" width="2560" height="1325" />
     </state>
-    <state width="2006" height="371" key="GridCell.Tab.0.left/0.25.2560.1325@0.25.2560.1325" timestamp="1616533357835" />
-    <state width="2006" height="371" key="GridCell.Tab.0.right" timestamp="1616533357836">
+    <state width="1003" height="371" key="GridCell.Tab.0.left/0.25.2560.1325@0.25.2560.1325" timestamp="1616785767454" />
+    <state width="1003" height="371" key="GridCell.Tab.0.right" timestamp="1616785767454">
       <screen x="0" y="25" width="2560" height="1325" />
     </state>
-    <state width="2006" height="371" key="GridCell.Tab.0.right/0.25.2560.1325@0.25.2560.1325" timestamp="1616533357836" />
+    <state width="1003" height="371" key="GridCell.Tab.0.right/0.25.2560.1325@0.25.2560.1325" timestamp="1616785767454" />
+    <state x="617" y="434" key="IDE.errors.dialog" timestamp="1616785672865">
+      <screen x="0" y="25" width="2560" height="1325" />
+    </state>
+    <state x="617" y="434" key="IDE.errors.dialog/0.25.2560.1325@0.25.2560.1325" timestamp="1616785672865" />
+    <state x="5" y="143" key="MergeDialog" timestamp="1616787854724">
+      <screen x="0" y="25" width="2560" height="1325" />
+    </state>
+    <state x="5" y="143" key="MergeDialog/0.25.2560.1325@0.25.2560.1325" timestamp="1616787854724" />
+    <state x="652" y="445" key="MultipleFileMergeDialog" timestamp="1616787836300">
+      <screen x="0" y="25" width="2560" height="1325" />
+    </state>
+    <state x="652" y="445" key="MultipleFileMergeDialog/0.25.2560.1325@0.25.2560.1325" timestamp="1616787836300" />
+    <state x="811" y="605" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1616787806371">
+      <screen x="0" y="25" width="2560" height="1325" />
+    </state>
+    <state x="811" y="605" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.2560.1325@0.25.2560.1325" timestamp="1616787806371" />
   </component>
 </project>
