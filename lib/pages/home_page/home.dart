@@ -26,11 +26,21 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   bool seeAll = true;
+  String searchText = '';
+  bool isFocused = false;
+  FocusNode focusNode = FocusNode();
   ZoomDrawerController _controller;
 
   @override
   void initState() {
     super.initState();
+    focusNode.addListener(() {
+      if (focusNode.hasFocus) {
+        isFocused = true;
+      } else {
+        isFocused = false;
+      }
+    });
     _controller = ZoomDrawerController();
   }
 
@@ -42,6 +52,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: ZoomDrawer(
         showShadow: true,
         borderRadius: 24.0,
@@ -49,23 +60,22 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
         backgroundColor: Colors.grey[300],
         slideWidth: MediaQuery.of(context).size.width *
             (ZoomDrawer.isRTL() ? .45 : 0.65),
-        menuScreen: InkWell(
-          onTap: () {
-            _controller.close();
-          },
-          child: Container(
-              alignment: Alignment.center,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Menu(),
-                  ],
-                ),
-              )),
-        ),
+        menuScreen: Container(
+            alignment: Alignment.center,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  InkWell(
+                      onTap: () {
+                        _controller.close();
+                      },
+                      child: Menu()),
+                ],
+              ),
+            )),
         controller: _controller,
         mainScreen: Container(
             color: UiColors.primaryColor,
@@ -78,30 +88,27 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
                           horizontal: 8.0,
-                          vertical: 40.0,
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            IconButton(
-                              icon: Icon(
+                            InkWell(
+                              child: Icon(
                                 Icons.menu,
                                 color: Colors.white,
                               ),
-                              onPressed: () {
+                              onTap: () {
                                 _controller.toggle();
                               },
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(top:10.0),
-                              child: Text(
-                                'Sarasota Memorial',
-                                style: TextStyle(fontSize: 18),
-                                // style: Theme.of(context).textTheme.bodyText1,
-                              ),
+                            Text(
+                              'Sarasota Memorial',
+                              style:
+                                  TextStyle(fontSize: 18, color: Colors.white),
+                              // style: Theme.of(context).textTheme.bodyText1,
                             ),
                             Container(
-                              width: 50,
+                              width: MediaQuery.of(context).size.width * .05,
                             )
                           ],
                         ),
@@ -119,157 +126,159 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(8)),
                         child: TextField(
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            contentPadding: EdgeInsets.only(
-                              bottom: 6, // HERE THE IMPORTANT PART
-                            ),
-                            icon: Padding(
-                              padding: const EdgeInsets.only(left: 10),
-                              child: Icon(
-                                Icons.search,
-                                color: Colors.grey,
+                            focusNode: focusNode,
+                            textCapitalization: TextCapitalization.characters,
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              contentPadding: EdgeInsets.only(
+                                bottom: 6, // HERE THE IMPORTANT PART
+                              ),
+                              icon: Padding(
+                                padding: const EdgeInsets.only(left: 10),
+                                child: Icon(
+                                  Icons.search,
+                                  color: Colors.grey,
+                                ),
                               ),
                             ),
-                            //  prefixIcon: Icon(Icons.search,)
+                            onChanged: (value) {
+                              setState(() {
+                                searchText = value;
+                              });
+                            }),
+                      ),
+                    ),
+                  ),
+                  !isFocused
+                      ? ListTile(
+                          title: Text(
+                            'How may we help you?',
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.white),
                           ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  ListTile(
-                    title: Text(
-                      'How may we help you?',
-                      style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.white),
-                    ),
-                    trailing: InkWell(
-                      onTap: () {
-                        Navigator.push(context, SizeRoute(page: MainIcons()));
-                      },
-                      child: Text(
-                        'SEE ALL',
-                        style: TextStyle(color: Colors.white60, fontSize: 14),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: Stack(children: [
-                      Container(
-                        margin: EdgeInsets.only(left: 14),
-                        height: MediaQuery.of(context).size.height * .25,
-                        child: ListView(
-                          scrollDirection: Axis.horizontal,
-                          children: [
-                            buildListTile(
-                                title: 'Find a Doctor',
-                                path: 'assets/images/main/find_a_doctor.png',
-                                callBack: () {
-                                  Navigator.of(context).push(
-                                    SlideRightRoute(
-                                      page: GetSpecialties(),
-                                    ),
-                                  );
-                                }),
-                            buildListTile(
-                                title: 'Our Locations',
-                                path: 'assets/images/main/ourlocations.png',
-                                callBack: () {
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                        builder: (BuildContext context) {
-                                          return new NearestLocations(cardsData: widget.cardsData);
-                                        }),
-                                  );
-                                }),
-                            buildListTile(
-                                title: 'Symptom Checker',
-                                path: 'assets/images/main/sympton_checker.png',
-                                callBack: () {
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                        builder: (BuildContext context) {
-                                          return SymptomChecker();
-                                        }),
-                                  );
-                                }),
-                            buildListTile(
-                                title: 'Surgery Status',
-                                path: 'assets/images/main/surgery_status.png',
-                                callBack: () {
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                        builder: (BuildContext context) {
-                                          return SurgeryStatus(
-                                            url: 'https://surgerystatus.smh.com',
-                                          );
-                                        }),
-                                  );
-                                }),
-                            buildListTile(
-                                title: 'SMH Events',
-                                path: 'assets/images/main/eventscalendar.png',
-                                callBack: () {
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                        builder: (BuildContext context) {
-                                          return SMHEvents(
-                                            url: 'https://www.smh.com/Calendar',
-                                          );
-                                        }),
-                                  );
-                                }),
-                            buildListTile(
-                              title: 'SMH Wayfinder',
-                              path: 'assets/images/main/smhwayfinder.png',
-                              callBack: ()  {
-                                StoreRedirect.redirect(
-                                    androidAppId: "com.logicjunction.smh.wayfinder",
-                                    iOSAppId: "1234682654");
-                              },
+                          trailing: InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context, SizeRoute(page: MainIcons()));
+                            },
+                            child: Text(
+                              'SEE ALL',
+                              style: TextStyle(
+                                  color: Colors.white60, fontSize: 14),
                             ),
-                            buildListTile(
-                                title: 'Our Services',
-                                path: 'assets/images/main/our_serives.png',
-                                callBack: () {
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                        builder: (BuildContext context) {
-                                      return OurServices();
-                                    }),
-                                  );
-                                }),
-
-
-                            // buildListTile(
-                            //    title: 'Find a Doctor',
-                            //    path: 'assets/images/main/find_a_doctor.png'),
-                            // buildListTile(
-                            //    title: 'Find a Doctor',
-                            //    path: 'assets/images/main/find_a_doctor.png'),
-                            // buildListTile(
-                            //    title: 'Find a Doctor',
-                            //    path: 'assets/images/main/find_a_doctor.png'),
-                            // buildListTile(
-                            //    title: 'Find a Doctor',
-                            //    path: 'assets/images/main/find_a_doctor.png'),
-                            // buildListTile(
-                            //    title: 'Find a Doctor',
-                            //    path: 'assets/images/main/find_a_doctor.png'),
-                            // buildListTile(
-                            //     title: 'Find a Doctor',
-                            //     path: 'assets/images/main/find_a_doctor.png'),
-                          ],
-                        ),
-                      ),
-                    ]),
-                  ),
+                          ),
+                        )
+                      : SizedBox(),
+                  !isFocused
+                      ? Expanded(
+                          flex: 2,
+                          child: Stack(children: [
+                            Container(
+                              margin: EdgeInsets.only(left: 14),
+                              height: MediaQuery.of(context).size.height * .25,
+                              child: ListView(
+                                scrollDirection: Axis.horizontal,
+                                children: [
+                                  buildListTile(
+                                      title: 'Find a Doctor',
+                                      path:
+                                          'assets/images/main/find_a_doctor.png',
+                                      callBack: () {
+                                        Navigator.of(context).push(
+                                          SlideRightRoute(
+                                            page: GetSpecialties(),
+                                          ),
+                                        );
+                                      }),
+                                  buildListTile(
+                                      title: 'Our Locations',
+                                      path:
+                                          'assets/images/main/ourlocations.png',
+                                      callBack: () {
+                                        Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (BuildContext context) {
+                                            return new NearestLocations(
+                                                cardsData: widget.cardsData);
+                                          }),
+                                        );
+                                      }),
+                                  buildListTile(
+                                      title: 'Symptom Checker',
+                                      path:
+                                          'assets/images/main/sympton_checker.png',
+                                      callBack: () {
+                                        Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (BuildContext context) {
+                                            return SymptomChecker();
+                                          }),
+                                        );
+                                      }),
+                                  buildListTile(
+                                      title: 'Surgery Status',
+                                      path:
+                                          'assets/images/main/surgery_status.png',
+                                      callBack: () {
+                                        Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (BuildContext context) {
+                                            return SurgeryStatus(
+                                              url:
+                                                  'https://surgerystatus.smh.com',
+                                            );
+                                          }),
+                                        );
+                                      }),
+                                  buildListTile(
+                                      title: 'SMH Events',
+                                      path:
+                                          'assets/images/main/eventscalendar.png',
+                                      callBack: () {
+                                        Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (BuildContext context) {
+                                            return SMHEvents(
+                                              url:
+                                                  'https://www.smh.com/Calendar',
+                                            );
+                                          }),
+                                        );
+                                      }),
+                                  buildListTile(
+                                    title: 'SMH Wayfinder',
+                                    path: 'assets/images/main/smhwayfinder.png',
+                                    callBack: () {
+                                      StoreRedirect.redirect(
+                                          androidAppId:
+                                              "com.logicjunction.smh.wayfinder",
+                                          iOSAppId: "1234682654");
+                                    },
+                                  ),
+                                  buildListTile(
+                                      title: 'Our Services',
+                                      path:
+                                          'assets/images/main/our_serives.png',
+                                      callBack: () {
+                                        Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (BuildContext context) {
+                                            return OurServices();
+                                          }),
+                                        );
+                                      }),
+                                ],
+                              ),
+                            ),
+                          ]),
+                        )
+                      : SizedBox(),
                   Expanded(
-                      flex: 4,
+                      flex: isFocused ? 6 : 4,
                       child: Container(
+                          margin: EdgeInsets.only(top: isFocused ? 40 : 0),
                           color: Colors.white,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -303,9 +312,10 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                                     MediaQuery.of(context).size.height * .33,
                                 child: ListView(
                                     scrollDirection: Axis.horizontal,
-                                    children: [
-                                      ...widget.cardsData.map(
-                                        (e) => _buildListCard(
+                                    children: widget.cardsData
+                                        .where(
+                                            (e) => e.title.contains(searchText))
+                                        .map((e) => _buildListCard(
                                             path: e.image,
                                             title: e.title,
                                             callBack: () {
@@ -322,11 +332,11 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                                                   //address:list[i].address,
                                                 ),
                                               );
-                                            }),
-                                      )
-                                    ]),
+                                            }))
+                                        .toList()),
                               ),
                               Expanded(
+                                flex: 2,
                                 child: Container(
                                   margin: EdgeInsets.only(bottom: 10),
                                   alignment: Alignment.center,
@@ -335,10 +345,10 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                                       Helper.launchURL('https://www.smh.com');
                                     },
                                     child: Container(
-                                      padding: EdgeInsets.only(bottom: 20),
-                                      height: 70,
+                                      padding: EdgeInsets.only(bottom: 10),
                                       child: Image.asset(
                                         "assets/images/SMHlogo.png",
+                                        fit: BoxFit.cover,
                                         alignment: Alignment.center,
                                       ),
                                     ),
@@ -354,7 +364,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     );
   }
 
-  _buildListCard({String title, String path, Function callBack}) {
+  Widget _buildListCard({String title, String path, Function callBack}) {
     return InkWell(
       onTap: () {
         callBack();
@@ -384,7 +394,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                 padding: const EdgeInsets.only(top: 5, left: 5),
                 child: Text(
                   title,
-                  //overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
                   textAlign: TextAlign.start,
                   style: TextStyle(
                     fontSize: 18,
