@@ -98,6 +98,12 @@
       "languageVersion": "2.0"
     },
     {
+      "name": "dots_indicator",
+      "rootUri": "file:///Users/codebreaker/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/dots_indicator-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "dropdown_search",
       "rootUri": "file:///Users/codebreaker/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/dropdown_search-0.4.8",
       "packageUri": "lib/",
@@ -246,6 +252,12 @@
       "rootUri": "file:///Users/codebreaker/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/intl-0.16.1",
       "packageUri": "lib/",
       "languageVersion": "2.5"
+    },
+    {
+      "name": "introduction_screen",
+      "rootUri": "file:///Users/codebreaker/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/introduction_screen-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "js",
@@ -560,7 +572,7 @@
       "languageVersion": "2.1"
     }
   ],
-  "generated": "2021-03-26T07:48:36.816573Z",
+  "generated": "2021-03-26T20:20:22.967890Z",
   "generator": "pub",
   "generatorVersion": "2.12.2"
 }
