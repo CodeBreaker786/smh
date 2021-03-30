@@ -292,6 +292,14 @@ class _DoctorDetailViewState extends State<DoctorDetailView> {
                                     ? getDoctorInformationTileSubTitle(
                                         subTitle: widget.doctor.residencies)
                                     : Container(),
+                                widget.doctor.fellowship != null
+                                    ? getDoctorInformationTileTitle(
+                                        title: 'Fellowship')
+                                    : Container(),
+                                widget.doctor.fellowship != null
+                                    ? getDoctorInformationTileSubTitle(
+                                        subTitle: widget.doctor.fellowship)
+                                    : Container(),
                                 widget.doctor.website != null
                                     ? getDoctorInformationTileTitle(
                                         title: 'Website')
