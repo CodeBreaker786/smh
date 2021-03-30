@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:sarasotaapp/model/user.dart';
+import 'package:sarasotaapp/networking.dart';
 import 'package:sarasotaapp/pages/symptom/step1.dart';
 import 'package:sarasotaapp/pages/symptom/step3.dart';
 import 'package:sarasotaapp/uatheme.dart';
@@ -19,8 +21,8 @@ class Step2 extends StatefulWidget {
 
 class _Step2State extends State<Step2> {
   bool isLoading = true;
-  List<String> symptomList = new List();
-  List<TextEditingController> textECList = new List();
+  List<String> symptomList = [];
+  List<TextEditingController> textECList = [];
   int textFieldCount = 3;
 
   @override
@@ -151,26 +153,46 @@ class _Step2State extends State<Step2> {
   }
 
   getTextFields() {
-    List<Widget> list = new List();
+    List<Widget> list = [];
     list.clear();
     textECList.clear();
     for (int i = 0; i < textFieldCount; i++) {
-      textECList.add(new TextEditingController());
+      textECList.add(TextEditingController());
       list.add(
         Padding(
-          padding: EdgeInsets.only(left: 20, right: 20),
-          child: TextField(
-            controller: textECList[i],
-            decoration: InputDecoration(
-              hintText: 'Enter a Symptom...',
-              hintStyle: TextStyle(
-                color: Colors.grey.shade500,
-                fontSize: UATheme.normalSize(),
-              ),
-              enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Colors.grey.shade400),
+          padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+          child: TypeAheadField(
+            textFieldConfiguration: TextFieldConfiguration(
+              controller: textECList[i],
+              decoration: InputDecoration(
+                hintText: 'Enter a Symptom...',
+                hintStyle: TextStyle(
+                  color: Colors.grey.shade500,
+                  fontSize: UATheme.normalSize(),
+                ),
+                enabledBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.grey.shade400),
+                ),
               ),
             ),
+             
+            suggestionsCallback: (pattern) async {
+              List<dynamic> words = await NetworkHelper.getPredectiveWords();
+
+              return words.where(
+                  (e) => e.toLowerCase().contains(pattern.toLowerCase()));
+            },
+            transitionBuilder: (context, suggestionsBox, controller) {
+              return suggestionsBox;
+            },
+            itemBuilder: (context, suggestion) {
+              return ListTile(
+                title: Text(suggestion),
+              );
+            },
+            onSuggestionSelected: (suggestion) {
+              textECList[i].text = suggestion;
+            },
           ),
         ),
       );

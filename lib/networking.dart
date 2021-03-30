@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:http/http.dart' as http;
+import 'package:http/http.dart';
 import 'package:sarasotaapp/model/agegroups.dart';
 import 'package:sarasotaapp/model/diagnosis.dart';
 import 'package:sarasotaapp/model/pregnancy.dart';
@@ -41,6 +42,17 @@ class NetworkHelper {
     Regions region = new Regions.fromJson(data);
     print(data);
     return region;
+  }
+
+  static getPredectiveWords() async {
+    String url = 'https://apiscsandbox.isabelhealthcare.com/predictive-text';
+
+    Response response = await http.get(url);
+    if (response.statusCode == 200) {
+      final data = json.decode(response.body);
+      return data['predictive_text'] as List;
+    }
+    return [];
   }
 
   static getPregnancies() async {
