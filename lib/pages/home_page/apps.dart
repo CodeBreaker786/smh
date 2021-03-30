@@ -19,17 +19,18 @@ class _AppsState extends State<Apps> {
       ),
       body: ListView(
         children: <Widget>[
+          line(),
           ListTile(
             leading: Container(
               clipBehavior: Clip.antiAlias,
               decoration:
-                  BoxDecoration(borderRadius: BorderRadius.circular(10.0)),
+              BoxDecoration(borderRadius: BorderRadius.circular(10.0)),
               child: Image.asset(
-                'assets/images/smh_icon.jpg',
+                'assets/images/icon.jpg',
               ),
             ),
             title: Text(
-              'Sarasota Memorial',
+              'SMH Urgent Care',
             ),
             subtitle: Text(
               'Download',
@@ -40,8 +41,8 @@ class _AppsState extends State<Apps> {
             onTap: () {
               StoreRedirect.redirect(
                   androidAppId:
-                      "com.soln.SE35BCA74A3BE95A854E67E90FEB1DBB3&hl=en_US",
-                  iOSAppId: "397478168");
+                  "com.soln.S9151C8A3525748378EEF590856613786&hl=en_SG",
+                  iOSAppId: "1438233567");
             },
           ),
           line(),
@@ -49,9 +50,35 @@ class _AppsState extends State<Apps> {
             leading: Container(
               clipBehavior: Clip.antiAlias,
               decoration:
-                  BoxDecoration(borderRadius: BorderRadius.circular(10.0)),
+              BoxDecoration(borderRadius: BorderRadius.circular(10.0)),
               child: Image.asset(
-                'assets/images/smh_icon.jpg',
+                'assets/images/bariatricicon.png',
+              ),
+            ),
+            title: Text(
+              'SMH Bariatric Surgery',
+            ),
+            subtitle: Text(
+              'Download',
+              style: TextStyle(
+                color: Colors.blue,
+              ),
+            ),
+            onTap: () {
+              StoreRedirect.redirect(
+                  androidAppId:
+                  "com.soln.SCAA21C31421B4D6596B183509DFD0184&hl=en_SG",
+                  iOSAppId: "1422806614");
+            },
+          ),
+          line(),
+          ListTile(
+            leading: Container(
+              clipBehavior: Clip.antiAlias,
+              decoration:
+              BoxDecoration(borderRadius: BorderRadius.circular(10.0)),
+              child: Image.asset(
+                'assets/images/smhwayfinder.jpeg',
               ),
             ),
             title: Text(
@@ -66,10 +93,37 @@ class _AppsState extends State<Apps> {
             onTap: () {
               StoreRedirect.redirect(
                   androidAppId:
-                      "com.soln.SE35BCA74A3BE95A854E67E90FEB1DBB3&hl=en_US",
-                  iOSAppId: "397478168");
+                  "com.logicjunction.smh.wayfinder&hl=en_SG",
+                  iOSAppId: "1234682654");
             },
           ),
+          line(),
+          ListTile(
+            leading: Container(
+              clipBehavior: Clip.antiAlias,
+              decoration:
+              BoxDecoration(borderRadius: BorderRadius.circular(10.0)),
+              child: Image.asset(
+                'assets/images/yomingo.png',
+              ),
+            ),
+            title: Text(
+              'Yomingo! (SMH Baby)',
+            ),
+            subtitle: Text(
+              'Download',
+              style: TextStyle(
+                color: Colors.blue,
+              ),
+            ),
+            onTap: () {
+              StoreRedirect.redirect(
+                  androidAppId:
+                  "com.cci.yomingo&hl=en_SG",
+                  iOSAppId: "1377789095");
+            },
+          ),
+
         ],
       ),
     );
