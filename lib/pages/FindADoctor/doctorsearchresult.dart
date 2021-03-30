@@ -161,9 +161,7 @@ class _DoctorSearchResultState extends State<DoctorSearchResult> {
                                     horizontal: 25, vertical: 5),
                                 child: Card(
                                   //clipBehavior: Clip.antiAlias,
-                                  color: Theme.of(context)
-                                      .primaryColor
-                                      .withOpacity(.6),
+                                  color: Color(0xFF639ec8),
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(10)),
                                   child: Container(
@@ -204,8 +202,8 @@ class _DoctorSearchResultState extends State<DoctorSearchResult> {
                                                   ? "No Speciality Found"
                                                   : _searchResults[position]
                                                       .specialities,
-                                              maxLines: 3,
-                                              overflow: TextOverflow.ellipsis,
+                                              maxLines: 2,
+                                              overflow: TextOverflow.clip,
                                               style: TextStyle(
                                                   color: Colors.white70),
                                             ),
@@ -390,7 +388,7 @@ class _DoctorSearchResultState extends State<DoctorSearchResult> {
                       child: TextField(
                         controller: _nameController,
                         decoration: InputDecoration(
-                          hintText: 'Search doctor',
+                          hintText: 'Search Doctor',
                           filled: true,
                           border: InputBorder.none,
                           contentPadding: EdgeInsets.only(
@@ -488,7 +486,7 @@ class _DoctorSearchResultState extends State<DoctorSearchResult> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'Not Signed In',
+                          'Physician Sign In',
                           style: TextStyle(color: Colors.white, fontSize: 18),
                         ),
                         Text(

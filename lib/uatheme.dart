@@ -49,6 +49,8 @@ class UATheme {
       buttonColor: AppSettings.primaryColor,
       buttonTheme: ButtonThemeData(
         buttonColor: AppSettings.primaryColor,
+ 
+  
         textTheme: ButtonTextTheme.accent,
         colorScheme: ColorScheme.light(),
       ),

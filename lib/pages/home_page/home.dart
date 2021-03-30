@@ -87,7 +87,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                     child: Container(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
-                          horizontal: 8.0,
+                          horizontal: 20.0,
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
