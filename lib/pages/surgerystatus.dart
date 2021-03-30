@@ -41,6 +41,7 @@ class _SurgeryStatusState extends State<SurgeryStatus> {
           _controller.complete(webViewController);
         },
         initialUrl: widget.url,
+        javascriptMode: web.JavascriptMode.unrestricted,
       ),
     );
   }

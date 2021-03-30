@@ -36,9 +36,13 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     super.initState();
     focusNode.addListener(() {
       if (focusNode.hasFocus) {
-        isFocused = true;
+        setState(() {
+          isFocused = true;
+        });
       } else {
-        isFocused = false;
+        setState(() {
+          isFocused = false;
+        });
       }
     });
     _controller = ZoomDrawerController();
@@ -87,7 +91,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                     child: Container(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
-                          horizontal: 8.0,
+                          horizontal: 20.0,
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -127,11 +131,23 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                             borderRadius: BorderRadius.circular(8)),
                         child: TextField(
                             focusNode: focusNode,
-                            textCapitalization: TextCapitalization.characters,
+                            textCapitalization: TextCapitalization.words,
                             decoration: InputDecoration(
+                              suffixIcon: isFocused
+                                  ? InkWell(
+                                      onTap: () {
+                                        FocusScope.of(context)
+                                            .requestFocus(FocusNode());
+                                      },
+                                      child: Icon(
+                                        Icons.clear,
+                                        color: Colors.grey,
+                                      ),
+                                    )
+                                  : SizedBox(),
                               border: InputBorder.none,
                               contentPadding: EdgeInsets.only(
-                                bottom: 6, // HERE THE IMPORTANT PART
+                                top: 6, // HERE THE IMPORTANT PART
                               ),
                               icon: Padding(
                                 padding: const EdgeInsets.only(left: 10),
@@ -313,8 +329,9 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                                 child: ListView(
                                     scrollDirection: Axis.horizontal,
                                     children: widget.cardsData
-                                        .where(
-                                            (e) => e.title.contains(searchText))
+                                        .where((e) => e.title
+                                            .toLowerCase()
+                                            .contains(searchText.toLowerCase()))
                                         .map((e) => _buildListCard(
                                             path: e.image,
                                             title: e.title,

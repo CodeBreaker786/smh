@@ -25,7 +25,7 @@ class Info {
     'assets/images/bayside.jpg',
     'assets/images/i2.jpeg',
     'assets/images/University.jpg',
-    'assets/images/University.jpg',
+    'assets/images/universityucc.jpg',
     'assets/images/starmands.jpg',
     'assets/images/beeridge.jpg',
     'assets/images/stickney.jpg',

@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:sarasotaapp/uatheme.dart';
 import 'package:sarasotaapp/widgets/ualabel.dart';
@@ -54,6 +53,7 @@ class _SMHEventsState extends State<SMHEvents> {
           _controller.complete(webViewController);
         },
         initialUrl: widget.url,
+        javascriptMode: web.JavascriptMode.unrestricted,
       ),
     );
   }
