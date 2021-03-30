@@ -33,7 +33,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.soln.SE35BCA74A3BE95A854E67E90FEB1DBB3"
+        applicationId "com.photobooks.Sarasota"
         minSdkVersion 16
         targetSdkVersion 30
         versionCode 5
