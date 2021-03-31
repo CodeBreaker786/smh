@@ -64,6 +64,7 @@ flutter_icons:
 flutter:
   uses-material-design: true
   assets:
+    - assets/onboarding/ 
     - assets/images/
     - assets/images/main/
   # To add assets to your application, add an assets section, like this:

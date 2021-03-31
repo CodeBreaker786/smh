@@ -6,7 +6,9 @@ import 'package:location/location.dart';
 import 'package:sarasotaapp/model/locationitem.dart';
 import 'package:sarasotaapp/navigation.dart';
 import 'package:sarasotaapp/pages/locations/info.dart';
+import 'package:sarasotaapp/pages/on_boarding_screen.dart';
 import 'package:sarasotaapp/uatheme.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'home_page/home.dart';
 
@@ -16,17 +18,15 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-   List<LocationItem> list = [];
+  List<LocationItem> list = [];
   double latitude;
   double longitude;
   bool isLoading = true;
 
- 
   @override
   void initState() {
     super.initState();
     startTimeout();
-   
   }
 
   @override
@@ -44,27 +44,39 @@ class _SplashScreenState extends State<SplashScreen> {
       ),
     );
   }
-   void handleTimeout() async {
-    Navigation.closeOpen(context, Home(cardsData: list,));
+
+  void handleTimeout() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String onboarding = prefs.getString('onboarding');
+    if (onboarding == null) {
+      Navigation.closeOpen(
+          context,
+          OnBoardingPage(
+            cardsData: list,
+          ));
+    } else {
+      Navigation.closeOpen(
+          context,
+          Home(
+            cardsData: list,
+          ));
+    }
   }
 
   startTimeout() async {
     var duration = const Duration(seconds: 2);
-    await  getData();
+    await getData();
     return Timer(duration, handleTimeout);
   }
 
-  
-getData() async {
+  getData() async {
     await getLocation();
     setData();
-    
-      list.sort((a, b) => Comparable.compare(
-          double.parse(a.distance), double.parse(b.distance)));
-      isLoading = false;
-    
+
+    list.sort((a, b) =>
+        Comparable.compare(double.parse(a.distance), double.parse(b.distance)));
+    isLoading = false;
   }
-  
 
   checkPermission() async {
     p.PermissionStatus permission = await p.PermissionHandler()
@@ -114,8 +126,7 @@ getData() async {
     return (12742 * asin(sqrt(a))).toStringAsFixed(2);
   }
 
-   setData() {
-    
+  setData() {
     for (int i = 0; i < 18; i++) {
       LocationItem serviceItem = new LocationItem();
       serviceItem.title = Info.title[i];
