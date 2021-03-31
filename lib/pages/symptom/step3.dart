@@ -32,8 +32,13 @@ class _Step3State extends State<Step3> {
   }
 
   getData() async {
-    diagnosis = await NetworkHelper.getDiagnosis(widget.user);
+    try {
+      diagnosis = await NetworkHelper.getDiagnosis(widget.user);
+    } catch (e) {
+      isLoading = false;
+    }
     isLoading = false;
+
     setState(() {});
   }
 

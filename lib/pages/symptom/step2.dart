@@ -148,21 +148,23 @@ class _Step2State extends State<Step2> {
   getSymptomsList() {
     symptomList.clear();
     for (int i = 0; i < textECList.length; i++)
-      if (textECList[i].text != "")
-        symptomList.add(textECList[i].text.trim().replaceAll(" ", ""));
+      if (textECList[i].text != "") symptomList.add(textECList[i].text.trim());
   }
 
   getTextFields() {
     List<Widget> list = [];
-    list.clear();
-    textECList.clear();
+
     for (int i = 0; i < textFieldCount; i++) {
       textECList.add(TextEditingController());
       list.add(
         Padding(
           padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
           child: TypeAheadField(
+            debounceDuration: Duration(seconds: 0),
+            hideOnEmpty: true,
             textFieldConfiguration: TextFieldConfiguration(
+              scrollPadding: EdgeInsets.symmetric(horizontal: 40),
+              enableInteractiveSelection: false,
               controller: textECList[i],
               decoration: InputDecoration(
                 hintText: 'Enter a Symptom...',
@@ -175,12 +177,13 @@ class _Step2State extends State<Step2> {
                 ),
               ),
             ),
-             
             suggestionsCallback: (pattern) async {
-              List<dynamic> words = await NetworkHelper.getPredectiveWords();
+              if (pattern != "") {
+                List<dynamic> words = await NetworkHelper.getPredectiveWords();
 
-              return words.where(
-                  (e) => e.toLowerCase().contains(pattern.toLowerCase()));
+                return words.where(
+                    (e) => e.toLowerCase().contains(pattern.toLowerCase()));
+              }
             },
             transitionBuilder: (context, suggestionsBox, controller) {
               return suggestionsBox;
