@@ -3,10 +3,8 @@ import 'package:introduction_screen/introduction_screen.dart';
 import 'package:location/location.dart';
 import 'package:sarasotaapp/colors.dart';
 import 'package:sarasotaapp/model/locationitem.dart';
-import 'package:sarasotaapp/navigation.dart';
-import 'package:sarasotaapp/pages/home_page/home.dart';
+import 'package:sarasotaapp/utils/show_flushbar.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:permission_handler/permission_handler.dart' as p;
 
 class OnBoardingPage extends StatefulWidget {
   List<LocationItem> cardsData = [];
@@ -21,17 +19,12 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
   void _onIntroEnd(context) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString('onboarding', 'yes');
-    Navigation.closeOpen(
-        context,
-        Home(
-          cardsData: widget.cardsData,
-        ));
+    Navigator.pop(context, true);
   }
 
   @override
   Widget build(BuildContext context) {
     const bodyStyle = TextStyle(fontSize: 19.0, color: Colors.grey);
-
     PageDecoration pageDecoration = PageDecoration(
       titleTextStyle: TextStyle(
           fontSize: 28.0,
@@ -42,17 +35,29 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
       pageColor: Colors.white,
       imagePadding: EdgeInsets.zero,
     );
-
     return IntroductionScreen(
       key: introKey,
       globalBackgroundColor: Colors.white,
-
       pages: [
         PageViewModel(
           title: "Welcome!",
           body:
               "We have rebuilt our appto offer an improved flow and easier access to the features our community uses the most.Please take a moment to swipe through some highlights!",
           image: Image.asset('assets/onboarding/smh.png'),
+          decoration: pageDecoration,
+        ),
+        PageViewModel(
+          image: Image.asset('assets/onboarding/status.png'),
+          title: "Surgery Status",
+          body:
+              "Find out how your loved one’s surgical procedure is progressing.",
+          decoration: pageDecoration,
+        ),
+        PageViewModel(
+          image: Image.asset('assets/onboarding/checker.png'),
+          title: "Symptom Checker",
+          body:
+              "Helps you decide where you should go for medical care - whether it's to stay at home,visit an urgent care or the ER.",
           decoration: pageDecoration,
         ),
         PageViewModel(
@@ -63,9 +68,23 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           footer: ElevatedButton(
             onPressed: () async {
               var location = Location();
-              bool gotEnabled = await location.requestService();
-              if (gotEnabled) {
-                print('granted');
+               bool enabled = await location.serviceEnabled();
+                 LocationData locationData = await location.getLocation();
+              if (enabled) {
+                showSnackBar(
+                    context: context,
+                    value: 'Permesstion Granted',
+                    icon: Icon(Icons.done));
+              } else {
+                var location = Location();
+                bool gotEnabled = await location.requestService();
+              
+                if (gotEnabled) {
+                  showSnackBar(
+                      context: context,
+                      value: 'Permesstion Granted',
+                      icon: Icon(Icons.done));
+                }
               }
             },
             child: Padding(
@@ -84,32 +103,14 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           ),
           decoration: pageDecoration,
         ),
-        PageViewModel(
-          image: Image.asset('assets/onboarding/status.png'),
-          title: "Surgery Status",
-          body:
-              "Find out how your loved one’s surgical procedure is progressing.",
-          decoration: pageDecoration,
-        ),
-        PageViewModel(
-          image: Image.asset('assets/onboarding/checker.png'),
-          title: "Symptom Checker",
-          body:
-              "Helps you decide where you should go for medical care - whether it's to stay at home,visit an urgent care or the ER.",
-          decoration: pageDecoration,
-        ),
       ],
       onDone: () => _onIntroEnd(context),
-      //onSkip: () => _onIntroEnd(context), // You can override onSkip callback
-
       skipFlex: 0,
       nextFlex: 0,
-      //rtl: true, // Display as right-to-left
       skip: const Text('Skip'),
       next: const Icon(Icons.arrow_forward),
       done: const Text('Done', style: TextStyle(fontWeight: FontWeight.w600)),
       curve: Curves.fastLinearToSlowEaseIn,
-
       dotsDecorator: const DotsDecorator(
         size: Size(10.0, 10.0),
         color: Color(0xFFBDBDBD),

@@ -1,4 +1,4 @@
-import 'dart:async';
+ 
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
@@ -25,7 +25,31 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    startTimeout();
+  }
+
+  @override
+  void didChangeDependencies() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String onboarding = prefs.getString('onboarding');
+    if (onboarding == null) {
+      bool status =await Navigator.push(context,MaterialPageRoute(builder: (context)=>OnBoardingPage()));
+      if (status) {
+        await getData();
+        Navigation.closeOpen(
+            context,
+            Home(
+              cardsData: list,
+            ));
+      }
+    } else {
+      await getData();
+      Navigation.closeOpen(
+          context,
+          Home(
+            cardsData: list,
+          ));
+    }
+    super.didChangeDependencies();
   }
 
   @override
@@ -43,31 +67,6 @@ class _SplashScreenState extends State<SplashScreen> {
       ),
     );
   }
-
-  void handleTimeout() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    String onboarding = prefs.getString('onboarding');
-    if (onboarding == null) {
-      Navigation.closeOpen(
-          context,
-          OnBoardingPage(
-            cardsData: list,
-          ));
-    } else {
-      Navigation.closeOpen(
-          context,
-          Home(
-            cardsData: list,
-          ));
-    }
-  }
-
-  startTimeout() async {
-    var duration = const Duration(seconds: 2);
-    await getData();
-    return Timer(duration, handleTimeout);
-  }
-
   getData() async {
     await getLocation();
     setData();
@@ -76,7 +75,6 @@ class _SplashScreenState extends State<SplashScreen> {
         Comparable.compare(double.parse(a.distance), double.parse(b.distance)));
     isLoading = false;
   }
-
 
   getLocation() async {
     var location = new Location();

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sarasotaapp/colors.dart';
-import 'package:sarasotaapp/pages/on_boarding_screen.dart';
-import 'package:sarasotaapp/pages/splashscreen.dart';
+ import 'package:sarasotaapp/pages/splashscreen.dart';
 import 'package:flutter/services.dart';
 
 void main() {
