@@ -2,16 +2,13 @@ import 'dart:io' show Platform;
 
 import 'package:android_intent/android_intent.dart';
 import 'package:flutter/material.dart';
-import 'package:geocoder/geocoder.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:sarasotaapp/appsettings.dart';
 import 'package:sarasotaapp/model/locationitem.dart';
 import 'package:sarasotaapp/uatheme.dart';
 import 'package:sarasotaapp/widgets/uabutton.dart';
 import 'package:sarasotaapp/widgets/ualabel.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import '../webview.dart';
+ 
 
 class LocationDetails extends StatefulWidget {
   final LocationItem info;
@@ -86,16 +83,7 @@ class _LocationDetailsState extends State<LocationDetails> {
                       color: Colors.transparent,
                       textColor: AppSettings.primaryColor,
                       onPressed: () async {
-                        // print(widget.address.substring(0, 20));
-                        final address = await Geocoder.local
-                            .findAddressesFromCoordinates(
-                                Coordinates(widget.latitude, widget.longitude));
-                        // print(address.first.toMap());
-                        String origin = ""; // lat,long like 123.34,68.56
-                        String destination =
-                            '${widget.latitude},${widget.longitude}';
                         if (Platform.isAndroid) {
-                          PermissionGroup.locationAlways;
                           final AndroidIntent intent = new AndroidIntent(
                               action: 'action_view',
                               data: Uri.encodeFull(
@@ -103,20 +91,9 @@ class _LocationDetailsState extends State<LocationDetails> {
                               package: 'com.google.android.apps.maps');
                           intent.launch();
                         } else {
-                          PermissionGroup.locationAlways;
-
-                          //  print(address.first.toMap());
                           final destination =
-                              "https://www.google.com/maps/place/${widget.address}";
-                          print(destination);
-
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => WebView(
-                                        url: destination,
-                                        title: 'Directions',
-                                      )));
+                              "http://maps.apple.com/?daddr=${widget.address}&dirflg=d";
+                          _launchURL(destination);
                         }
                       },
                     ),

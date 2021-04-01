@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:math';
-import 'package:permission_handler/permission_handler.dart' as p;
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
 import 'package:sarasotaapp/model/locationitem.dart';
@@ -78,15 +77,6 @@ class _SplashScreenState extends State<SplashScreen> {
     isLoading = false;
   }
 
-  checkPermission() async {
-    p.PermissionStatus permission = await p.PermissionHandler()
-        .checkPermissionStatus(p.PermissionGroup.locationAlways);
-    if (permission == p.PermissionStatus.granted) {
-      await getLocation();
-      return true;
-    } else
-      return false;
-  }
 
   getLocation() async {
     var location = new Location();

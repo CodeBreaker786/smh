@@ -12,7 +12,7 @@ class OurServices extends StatefulWidget {
 }
 
 class _OurServicesState extends State<OurServices> {
-  List<ServiceItem> list = new List();
+  List<ServiceItem> list = [];
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +51,7 @@ class _OurServicesState extends State<OurServices> {
   }
 
   setData() {
-    list = new List();
+    list =[];
     for (int i = 0; i < 32; i++) {
       ServiceItem serviceItem = new ServiceItem();
       serviceItem.title = Info.title[i];
