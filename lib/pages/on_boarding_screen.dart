@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:location/location.dart';
 import 'package:sarasotaapp/colors.dart';
 import 'package:sarasotaapp/model/locationitem.dart';
 import 'package:sarasotaapp/navigation.dart';
 import 'package:sarasotaapp/pages/home_page/home.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:permission_handler/permission_handler.dart' as p;
 
 class OnBoardingPage extends StatefulWidget {
   List<LocationItem> cardsData = [];
@@ -16,15 +18,14 @@ class OnBoardingPage extends StatefulWidget {
 class _OnBoardingPageState extends State<OnBoardingPage> {
   final introKey = GlobalKey<IntroductionScreenState>();
 
-  void _onIntroEnd(context)async {
-     SharedPreferences prefs = await SharedPreferences.getInstance();
-      prefs.setString('onboarding','yes');
+  void _onIntroEnd(context) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('onboarding', 'yes');
     Navigation.closeOpen(
-          context,
-          Home(
-            cardsData: widget.cardsData,
-          ));
-    
+        context,
+        Home(
+          cardsData: widget.cardsData,
+        ));
   }
 
   @override
@@ -60,7 +61,13 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
               "To take full advantage of thebuilt-in directions to our manyfacilities, please enable “Location Services”.",
           image: Image.asset('assets/onboarding/location.png'),
           footer: ElevatedButton(
-            onPressed: () {},
+            onPressed: () async {
+              var location = Location();
+              bool gotEnabled = await location.requestService();
+              if (gotEnabled) {
+                print('granted');
+              }
+            },
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: const Text(
