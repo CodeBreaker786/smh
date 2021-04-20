@@ -28,8 +28,11 @@ class _ServiceDetailsState extends State<ServiceDetails> {
         ),
         body: Column(
           children: <Widget>[
-            Expanded(
-              child: Image.asset(widget.info.image),
+            Padding(
+              padding: const EdgeInsets.all(0.0),
+              child: Expanded(
+                child: Image.asset(widget.info.image),
+              ),
             ),
             Expanded(
               flex: 2,
@@ -41,9 +44,8 @@ class _ServiceDetailsState extends State<ServiceDetails> {
                       text: widget.info.title,
                       color: Colors.grey,
                       paddingLeft: 20,
-                      paddingBottom: 10,
                       paddingTop: 20,
-                      paddingRight: 20,
+                      paddingRight: 40,
                       bold: true,
                       size: UATheme.headingSize(),
                     ),
@@ -53,12 +55,13 @@ class _ServiceDetailsState extends State<ServiceDetails> {
                       paddingLeft: 20,
                       paddingBottom: 20,
                       paddingTop: 20,
+                      paddingRight: 40,
                     ),
                     Container(
                       width: double.infinity,
                       child: UAButton(
-                        paddingLeft: 40,
-                        paddingRight: 40,
+                        paddingLeft: 20,
+                        paddingRight: 20,
                         onPressed: () {
                           Navigation.open(
                               context,

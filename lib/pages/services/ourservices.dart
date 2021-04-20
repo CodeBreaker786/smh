@@ -25,7 +25,7 @@ class _OurServicesState extends State<OurServices> {
         ),
       ),
       body: ListView.builder(
-          itemCount: 32,
+          itemCount: list.length,
           itemBuilder: (context, i) {
             return ListTile(
               onTap: () {
@@ -51,8 +51,8 @@ class _OurServicesState extends State<OurServices> {
   }
 
   setData() {
-    list =[];
-    for (int i = 0; i < 32; i++) {
+    list = [];
+    for (int i = 0; i < Info.title.length; i++) {
       ServiceItem serviceItem = new ServiceItem();
       serviceItem.title = Info.title[i];
       serviceItem.url = Info.url[i];
