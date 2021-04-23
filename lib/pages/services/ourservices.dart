@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sarasotaapp/model/serviceitem.dart';
-import 'package:sarasotaapp/navigation.dart';
+import 'package:sarasotaapp/utils/navigation.dart';
 import 'package:sarasotaapp/pages/services/info.dart';
 import 'package:sarasotaapp/pages/services/servicedetails.dart';
 import 'package:sarasotaapp/uatheme.dart';

@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:sarasotaapp/colors.dart';
+import 'package:sarasotaapp/utils/colors.dart';
 import 'package:sarasotaapp/pages/FindADoctor/RequestAppointment.dart';
 import 'package:sarasotaapp/pages/FindADoctor/doctor_detail_view.dart';
 import 'package:sarasotaapp/pages/FindADoctor/doctordetail.dart';

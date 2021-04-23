@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sarasotaapp/appsettings.dart';
+import 'package:sarasotaapp/utils/appsettings.dart';
 import 'package:sarasotaapp/model/serviceitem.dart';
-import 'package:sarasotaapp/navigation.dart';
+import 'package:sarasotaapp/utils/navigation.dart';
 import 'package:sarasotaapp/pages/smhevents.dart';
 import 'package:sarasotaapp/uatheme.dart';
 import 'package:sarasotaapp/widgets/uabutton.dart';

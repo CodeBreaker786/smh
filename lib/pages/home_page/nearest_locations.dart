@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sarasotaapp/model/locationitem.dart';
-import 'package:sarasotaapp/navigation.dart';
+import 'package:sarasotaapp/utils/navigation.dart';
 import 'package:sarasotaapp/pages/locations/locationdetails.dart';
 
 class NearestLocations extends StatefulWidget {

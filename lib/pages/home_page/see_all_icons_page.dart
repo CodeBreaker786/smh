@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sarasotaapp/colors.dart';
+import 'package:sarasotaapp/utils/colors.dart';
 import 'package:sarasotaapp/model/locationitem.dart';
-import 'package:sarasotaapp/navigation.dart';
+import 'package:sarasotaapp/utils/navigation.dart';
 import 'package:sarasotaapp/pages/FindADoctor/getSpecilties.dart';
 import 'package:sarasotaapp/pages/home_page/home.dart';
 import 'package:sarasotaapp/pages/locations/locationdetails.dart';

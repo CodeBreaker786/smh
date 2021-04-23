@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:location/location.dart';
-import 'package:sarasotaapp/colors.dart';
+import 'package:sarasotaapp/utils/colors.dart';
 import 'package:sarasotaapp/model/locationitem.dart';
 import 'package:sarasotaapp/utils/show_flushbar.dart';
 import 'package:shared_preferences/shared_preferences.dart';

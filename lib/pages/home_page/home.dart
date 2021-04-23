@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
-import 'package:sarasotaapp/colors.dart';
+import 'package:sarasotaapp/utils/colors.dart';
 import 'package:sarasotaapp/model/locationitem.dart';
-import 'package:sarasotaapp/navigation.dart';
+import 'package:sarasotaapp/utils/navigation.dart';
 import 'package:sarasotaapp/pages/FindADoctor/getSpecilties.dart';
 import 'package:sarasotaapp/pages/FindADoctor/helper.dart';
 import 'package:sarasotaapp/pages/home_page/nearest_locations.dart';

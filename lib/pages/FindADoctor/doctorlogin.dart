@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sarasotaapp/colors.dart';
+import 'package:sarasotaapp/utils/colors.dart';
 import 'package:sarasotaapp/pages/FindADoctor/strings.dart';
 import 'package:sarasotaapp/widgets/ualabel.dart';
 

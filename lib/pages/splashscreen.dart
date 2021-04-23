@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
 import 'package:sarasotaapp/model/locationitem.dart';
-import 'package:sarasotaapp/navigation.dart';
+import 'package:sarasotaapp/utils/navigation.dart';
 import 'package:sarasotaapp/pages/locations/info.dart';
 import 'package:sarasotaapp/pages/on_boarding_screen.dart';
 import 'package:sarasotaapp/uatheme.dart';

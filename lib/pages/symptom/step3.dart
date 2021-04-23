@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:sarasotaapp/model/diagnosis.dart';
 import 'package:sarasotaapp/model/user.dart';
-import 'package:sarasotaapp/networking.dart';
+import 'package:sarasotaapp/services/networking.dart';
 import 'package:sarasotaapp/pages/symptom/step2.dart';
 import 'package:sarasotaapp/pages/symptom/step4.dart';
 import 'package:sarasotaapp/pages/smhevents.dart';

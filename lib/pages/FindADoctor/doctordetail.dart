@@ -5,7 +5,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
-import 'package:sarasotaapp/appsettings.dart';
+import 'package:sarasotaapp/utils/appsettings.dart';
 import 'package:sarasotaapp/model/doctor.dart';
 import 'package:sarasotaapp/pages/FindADoctor/strings.dart';
 import 'package:sarasotaapp/pages/FindADoctor/webservices.dart';

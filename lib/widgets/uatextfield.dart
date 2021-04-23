@@ -1,4 +1,4 @@
-import 'package:sarasotaapp/appsettings.dart';
+import 'package:sarasotaapp/utils/appsettings.dart';
 import 'package:sarasotaapp/uatheme.dart';
 import 'package:flutter/material.dart';
 

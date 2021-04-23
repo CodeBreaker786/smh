@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:sarasotaapp/appsettings.dart';
+import 'package:sarasotaapp/utils/appsettings.dart';
 
 class UATheme {
   static MediaQueryData _mediaQueryData;

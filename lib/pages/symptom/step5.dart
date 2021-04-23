@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:sarasotaapp/model/user.dart';
-import 'package:sarasotaapp/networking.dart';
+import 'package:sarasotaapp/services/networking.dart';
 import 'package:sarasotaapp/pages/symptom/step4.dart';
 import 'package:sarasotaapp/pages/symptom/step6.dart';
 import 'package:sarasotaapp/uatheme.dart';

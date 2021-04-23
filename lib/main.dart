@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sarasotaapp/colors.dart';
+import 'package:sarasotaapp/utils/colors.dart';
  import 'package:sarasotaapp/pages/splashscreen.dart';
 import 'package:flutter/services.dart';
 
