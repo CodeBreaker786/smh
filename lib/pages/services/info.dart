@@ -22,12 +22,18 @@ class Info {
     'Maternity Services',
     'Memory Disorders',
     'Neurological Care',
-    'Nutrion Services',
+    'Nutrition Services',
     'Orthopedics',
     'Patient Financial Services',
+    'Pediatrics',
     'Radiology/Imaging Services',
+    'Rehabilitation Services',
     'Respiratory Care',
+    'Supportive Care Services',
     'Support Group Listings',
+    'Surgery',
+    'Thoracic Surgery',
+    'Urology',
     'Visitor Food Services',
     'Women\'s Health Services',
     'Wound Care',
@@ -55,11 +61,15 @@ class Info {
     'assets/images/Neurology.jpg', //Nueurological Care
     'assets/images/nutrition.jpg', //Nutrition Services
     'assets/images/Orthopedic.jpg', //Orthopedic
-    'assets/images/i21.jpeg',
-    'assets/images/i23.jpeg',
-    'assets/images/i25.jpeg',
-    'assets/images/i26.jpeg',
-    'assets/images/i29.jpeg',
+    'assets/images/i21.jpeg', //Patient Financial Services
+    'assets/images/Pediatrics.jpg', //Pediatrics
+    'assets/images/i25.jpeg', //Radiology Imaging Services
+    'assets/images/rehabservices.jpeg', //Rehab Services
+    'assets/images/Respiratory-Care.jpg', //Respiratory Care
+    'assets/images/Supportive-Care-Services.jpg', //Support Care Services
+    'assets/images/Support-Group-Listings.jpg', //Support Group Listings
+    'assets/images/Surgery.jpg', //Surgery
+    'assets/images/Thoracic-Surgery.jpg', //Thoracic Surgery
     'assets/images/i31.jpeg',
     'assets/images/i4.jpeg',
     'assets/images/i32.jpeg',
@@ -86,12 +96,17 @@ class Info {
     'Do you or a family member have difficulty remembering new things, handling complicated tasks, solving everyday problems or finding the right words? Some memory loss is normal as we age, but if memory loss is affecting your life, Sarasota Memorial\'s Memory Clinic can help. \nPartially funded by the Florida Department of Elder Affairs, the clinic provides assessment and evaluation by a multi-disciplinary team of Neurologists, Geriatricians and Neuropsychologists.',
     'The Sarasota Memorial Neuroscience Center of Excellence brings together a unique team of specialists and sub-specialists to evaluate and provide the most effective care for patients affected by neurological conditions of the brain, spinal cord, peripheral nerves and muscles.\n\nOur multi-disciplinary team comprises physician specialists with in-depth subspecialty expertise, including neurologists, neurosurgeons, neuroradiologists, otolaryngologists (ear, nose and throat specialists), endocrinologists, radiation oncologists, physiatrists, intensive care specialists, emergency medicine physicians, specialists in geriatric and psychiatric medicine, experienced nurses, nurse practitioners, physician assistants and neuro-rehabilitation specialists.',
     'Sarasota Memorial\’s Registered Dietitians use the most up-to-date, evidenced-based research to provide effective medical nutrition therapy to patients who require nutrition support and education during their hospital visit or at home.',
-    'Whether your joint, spine or other orthopedic problems stem from trauma, injury, illness or simply aging, Sarasota Memorial\'s comprehensive Orthopedic Services program aims to get you back to living a pain free, active life.',
+    'Whether your joint, spine or other orthopedic problems stem from trauma, injury, illness or simply aging, Sarasota Memorial\'s comprehensive Orthopedic Services program aims to get you back to living a pain-free, active life.',
     'Sarasota Memorial is committed to transparency and providing our patients with the information they need to make health care decisions. Our Patient Financial Services department provides patients and third-party insurance carriers with timely and accurate billings. We also ensure that each patient understands his or her financial responsibility for medical services, and help with financial aid options when needed.',
-    'Sarasota Memorial and its network of nine neighborhood care centers offer a full spectrum of digital imaging and radiology services. From highly specialized technologists and Radiology Nurses to board-certified Radiologists, we offer the best screening, diagnostic and treatment options, scheduled within 24 hours with fast, accurate results. All of Sarasota Memorial\'s radiology and imaging centers are fully accredited by the American College of Radiology.',
-    'Sarasota Memorial?s multi-disciplinary respiratory care team provides a full spectrum of diagnostic and therapeutic services for patients with lung disease, injuries and breathing disorders.',
+    'Sarasota Memorial and Johns Hopkins All Children’s Hospital collaborate to provide exceptional care for children. Thanks to our team of pediatric specialists at our Sarasota campus and our affiliation with Johns Hopkins All Children’s, SMH pediatric patients have access to the most advanced care in the nation.',
+    'Sarasota Memorial and its network of nine neighborhood care centers offer a full spectrum of digital imaging and radiology services. From highly specialized technologists and Radiology Nurses to board-certified Radiologists, we offer the best screening, diagnostic and treatment options, scheduled within 24 hours with fast, accurate results. \nAll of Sarasota Memorial\'s radiology and imaging centers are fully accredited by the American College of Radiology.',
+    'Sarasota Memorial\'s patient-focused and goal-oriented Rehabilitation program offers a full range of inpatient and outpatient therapy to meet the medical, rehabilitation and mobility needs of people recovering from an illness or injury, including brain and spinal-cord injuries, stroke and neurological disorders, and orthopedic and musculoskeletal conditions.',
+    'Sarasota Memorial\'s multi-disciplinary respiratory care team provides a full spectrum of diagnostic and therapeutic services for patients with lung disease, injuries and breathing disorders.',
+    'At Sarasota Memorial, our experienced, multidisciplinary Supportive Care Services team aims to improve and enhance patients’ quality of life and to support caregivers and loved ones affected by serious illness.',
     'The following support groups are held at Sarasota Memorial or facilitated by Sarasota Memorial staff members at other local locations. Please call the listed phone numbers for support-group meeting dates, times and locations. The Sarasota Memorial HealthLine can help you register for classes and programs sponsored by the hospital.\n\nContact HealthLine via LiveChat online or phone at 941-917-7777, or visit the Community Health Calendar for more information. HealthLine is open Monday through Friday, from 8:30 a.m. to 5 p.m., major holidays excluded.',
-    'Windows Cafe?\nLocated on the fourth floor of the hospital, near the B elevators, Windows Cafe is a self-service-style cafe, offering a variety of entrees and sides, a full salad bar and a featured made-to-order Chef Station. For those in a hurry, there are also Grab and Go items, along with various snacks, desserts and a large selection of beverages. Windows features a Fuel Up for Wellness program, which showcases premium healthy selections. On Mondays, it offers "Meatless Selections;" Wednesday is the popular "RD Choice" day; and Friday rounds out the work week with "Fryer-less Friday" options. Eating healthy never tasted so good! Hours: Monday - Friday, 6 a.m. to 3 p.m.; Saturday - Sunday, 6 a.m. to 3 p.m.\n\n1700 South Cafe\nWant to relax without having to leave the hospital campus? 1700 South Cafe is the perfect escape to a warm, friendly atmosphere with inviting music, delicious food selections and a full line of Starbucks Coffee! Join us for homemade pastries, Grab and Go selections and homemade salads and sandwiches. The cafe is located on the first floor of the hospital, near the D elevators, with easy access to the tables and chairs in the open air courtyard. Open Monday - Friday, 7 a.m. to 2 a.m., Saturday and Sunday, 2 p.m. to 2 a.m.\n\nCourtyard Cafe\nLocated in the first floor Courtyard Tower lobby, just inside the hospital\'s main entrance and adjacent to the open air courtyard, the cafe features Starbucks Coffee, including specialty hot and cold selections, fresh baked pastries and a variety of sandwiches and snacks perfect for any taste. In addition, we feature Dilmah tea, a specialty product from Sri Lanka. Open Monday- Friday, 6:30 a.m. to 3:00 p.m.\n\nVISA/Master Card/Discover and American Express accepted at Windows Cafeteria, 1700 South Caf? and Courtyard Caf?.\n\nVending Machines Vending machines are located on the first floor: near the D and G elevators and Courtyard Tower.',
+    'When you need surgery, you want the best surgeons using the most advanced techniques and minimally invasive tools available. Sarasota Memorial has more than 300 general, trauma and specialty surgeons on staff. Collectively, they perform more than 23,000 surgeries and procedures each year in 34 operating rooms at Sarasota Memorial\’s main campus and our adjacent Cape Outpatient Surgery Center.',
+    'Sarasota Memorial’s Thoracic Surgery team treats noncancerous (benign) and cancerous (malignant) disorders of the chest cavity area, including the trachea, lungs, esophagus, mediastinum (area between lungs where heart is located), diaphragm and chest wall (rib cage).',
+    'Windows Cafe\nLocated on the fourth floor of the hospital, near the B elevators, Windows Cafe is a self-service-style cafe, offering a variety of entrees and sides, a full salad bar and a featured made-to-order Chef Station. For those in a hurry, there are also Grab and Go items, along with various snacks, desserts and a large selection of beverages. Windows features a Fuel Up for Wellness program, which showcases premium healthy selections. On Mondays, it offers "Meatless Selections;" Wednesday is the popular "RD Choice" day; and Friday rounds out the work week with "Fryer-less Friday" options. Eating healthy never tasted so good! Hours: Monday - Friday, 6 a.m. to 3 p.m.; Saturday - Sunday, 6 a.m. to 3 p.m.\n\n1700 South Cafe\nWant to relax without having to leave the hospital campus? 1700 South Cafe is the perfect escape to a warm, friendly atmosphere with inviting music, delicious food selections and a full line of Starbucks Coffee! Join us for homemade pastries, Grab and Go selections and homemade salads and sandwiches. The cafe is located on the first floor of the hospital, near the D elevators, with easy access to the tables and chairs in the open air courtyard. Open Monday - Friday, 7 a.m. to 2 a.m., Saturday and Sunday, 2 p.m. to 2 a.m.\n\nCourtyard Cafe\nLocated in the first floor Courtyard Tower lobby, just inside the hospital\'s main entrance and adjacent to the open air courtyard, the cafe features Starbucks Coffee, including specialty hot and cold selections, fresh baked pastries and a variety of sandwiches and snacks perfect for any taste. In addition, we feature Dilmah tea, a specialty product from Sri Lanka. Open Monday- Friday, 6:30 a.m. to 3:00 p.m.\n\nVISA/Master Card/Discover and American Express accepted at Windows Cafeteria, 1700 South Caf? and Courtyard Caf?.\n\nVending Machines Vending machines are located on the first floor: near the D and G elevators and Courtyard Tower.',
     'When it comes to preventing breast cancer, the best defense is early detection. We ensure patients receive the most advanced care available to diagnose and treat cancer at its earliest and most curable stages.',
     'Expert Care for Hard-to-Heal Wounds Sarasota Memorial\'s Center for Wound Healing combines advanced therapies, proven medical techniques and individual consultations to heal wounds that have resisted treatment for weeks, months and even years. We specialize in all hard-to-heal wounds, including: Traumatic wounds Non-healing surgical wounds Arterial ulcers Diabetic foot ulcers Chronic leg ulcers Pressure ulcers (decubitus, bed sores) Chronic osteomyelitis (bone infection) Radiation-related tissue damage',
   ];
@@ -120,9 +135,14 @@ class Info {
     'https://www.smh.com/Home/Services/Nutrition',
     'https://www.smh.com/Home/Services/Orthopedics',
     'https://www.smh.com/Home/Patients-Visitors/Patient-Financial-Services',
+    'https://www.smh.com/Home/Services/Pediatrics',
     'https://www.smh.com/diagnostics',
+    'https://www.smh.com/rehab',
     'https://www.smh.com/Home/Services/Respiratory-Care',
+    'https://www.smh.com/Home/Services/Supportive-Care-Services',
     'https://www.smh.com/Contact-Us/Support-Group-Listings',
+    'https://www.smh.com/Surgery',
+    'https://www.smh.com/thoracic-surgery',
     'https://www.smh.com/Home/Patients-Visitors/Visitor-Food-Services',
     'https://www.smh.com/Home/Services/Womens-Health-Services',
     'https://www.smh.com/Home/Services/Wound-Care',

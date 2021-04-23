@@ -212,7 +212,9 @@ class _DoctorDetailViewState extends State<DoctorDetailView> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => RequestAppointment()));
+                                  builder: (context) => RequestAppointment(
+                                        doctorId: widget.doctor.accountId,
+                                      )));
                         },
                         color: Theme.of(context).primaryColor,
                         child: Text(
