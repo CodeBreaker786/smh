@@ -34,6 +34,7 @@ class Info {
     'Surgery',
     'Thoracic Surgery',
     'Urology',
+    'Vascular Services',
     'Visitor Food Services',
     'Women\'s Health Services',
     'Wound Care',
@@ -64,15 +65,17 @@ class Info {
     'assets/images/i21.jpeg', //Patient Financial Services
     'assets/images/Pediatrics.jpg', //Pediatrics
     'assets/images/i25.jpeg', //Radiology Imaging Services
-    'assets/images/rehabservices.jpeg', //Rehab Services
+    'assets/images/Rehab.jpg', //Rehab Services
     'assets/images/Respiratory-Care.jpg', //Respiratory Care
     'assets/images/Supportive-Care-Services.jpg', //Support Care Services
     'assets/images/Support-Group-Listings.jpg', //Support Group Listings
     'assets/images/Surgery.jpg', //Surgery
     'assets/images/Thoracic-Surgery.jpg', //Thoracic Surgery
-    'assets/images/i31.jpeg',
-    'assets/images/i4.jpeg',
-    'assets/images/i32.jpeg',
+    'assets/images/Urology.jpg', //Urology
+    'assets/images/Vascular-Services.jpg', //Vascular Services
+    'assets/images/Visitor-Food-Services.jpg', //Visitor Food Services
+    'assets/images/i4.jpeg', //Women's Health Services
+    'assets/images/Wound-Care.jpg', //Wound Care
   ];
   static List<String> description = [
     'Our outpatient clinics help patients at any stage of anticoagulation therapy safely manage their blood thinner medications, including warfarin sodium, Coumadin and Jantoven, and increase the amount of time their blood tests remain in the appropriate range. We help you manage conditions that require the use of short-term or long-term anticoagulants, including atrial fibrillation, mechanical heart valves, deep vein thrombosis, pulmonary embolism or other forms of blood clots.',
@@ -106,9 +109,11 @@ class Info {
     'The following support groups are held at Sarasota Memorial or facilitated by Sarasota Memorial staff members at other local locations. Please call the listed phone numbers for support-group meeting dates, times and locations. The Sarasota Memorial HealthLine can help you register for classes and programs sponsored by the hospital.\n\nContact HealthLine via LiveChat online or phone at 941-917-7777, or visit the Community Health Calendar for more information. HealthLine is open Monday through Friday, from 8:30 a.m. to 5 p.m., major holidays excluded.',
     'When you need surgery, you want the best surgeons using the most advanced techniques and minimally invasive tools available. Sarasota Memorial has more than 300 general, trauma and specialty surgeons on staff. Collectively, they perform more than 23,000 surgeries and procedures each year in 34 operating rooms at Sarasota Memorial\’s main campus and our adjacent Cape Outpatient Surgery Center.',
     'Sarasota Memorial’s Thoracic Surgery team treats noncancerous (benign) and cancerous (malignant) disorders of the chest cavity area, including the trachea, lungs, esophagus, mediastinum (area between lungs where heart is located), diaphragm and chest wall (rib cage).',
-    'Windows Cafe\nLocated on the fourth floor of the hospital, near the B elevators, Windows Cafe is a self-service-style cafe, offering a variety of entrees and sides, a full salad bar and a featured made-to-order Chef Station. For those in a hurry, there are also Grab and Go items, along with various snacks, desserts and a large selection of beverages. Windows features a Fuel Up for Wellness program, which showcases premium healthy selections. On Mondays, it offers "Meatless Selections;" Wednesday is the popular "RD Choice" day; and Friday rounds out the work week with "Fryer-less Friday" options. Eating healthy never tasted so good! Hours: Monday - Friday, 6 a.m. to 3 p.m.; Saturday - Sunday, 6 a.m. to 3 p.m.\n\n1700 South Cafe\nWant to relax without having to leave the hospital campus? 1700 South Cafe is the perfect escape to a warm, friendly atmosphere with inviting music, delicious food selections and a full line of Starbucks Coffee! Join us for homemade pastries, Grab and Go selections and homemade salads and sandwiches. The cafe is located on the first floor of the hospital, near the D elevators, with easy access to the tables and chairs in the open air courtyard. Open Monday - Friday, 7 a.m. to 2 a.m., Saturday and Sunday, 2 p.m. to 2 a.m.\n\nCourtyard Cafe\nLocated in the first floor Courtyard Tower lobby, just inside the hospital\'s main entrance and adjacent to the open air courtyard, the cafe features Starbucks Coffee, including specialty hot and cold selections, fresh baked pastries and a variety of sandwiches and snacks perfect for any taste. In addition, we feature Dilmah tea, a specialty product from Sri Lanka. Open Monday- Friday, 6:30 a.m. to 3:00 p.m.\n\nVISA/Master Card/Discover and American Express accepted at Windows Cafeteria, 1700 South Caf? and Courtyard Caf?.\n\nVending Machines Vending machines are located on the first floor: near the D and G elevators and Courtyard Tower.',
+    'Providing state-of-the-art, expert urological care, Sarasota Memorial’s multidisciplinary urology team has decades of experience and insight in treating urologic diseases and conditions that range from common to complex, including kidney diseases and conditions, urinary tract infections, incontinence, overactive bladder, enlarged prostate, erectile dysfunction, low testosterone and a full range of genitourinary cancers. Surgical options include traditional, laparoscopic, robotic and minimally invasive.',
+    'Sarasota Memorial\’s multidisciplinary approach to patient care ensures that those with vascular, venous and arterial disease benefit from the team’s shared expertise and have access to the comprehensive diagnostic services and treatments they need.',
+    'From a quick snack to a hot meal serve at Windows Café on the 4th floor, our full service kitchen, Sarasota Memorial offers visitors convenient access to a wide variety food options throughout the campus.',
     'When it comes to preventing breast cancer, the best defense is early detection. We ensure patients receive the most advanced care available to diagnose and treat cancer at its earliest and most curable stages.',
-    'Expert Care for Hard-to-Heal Wounds Sarasota Memorial\'s Center for Wound Healing combines advanced therapies, proven medical techniques and individual consultations to heal wounds that have resisted treatment for weeks, months and even years. We specialize in all hard-to-heal wounds, including: Traumatic wounds Non-healing surgical wounds Arterial ulcers Diabetic foot ulcers Chronic leg ulcers Pressure ulcers (decubitus, bed sores) Chronic osteomyelitis (bone infection) Radiation-related tissue damage',
+    'Expert Care for Hard-to-Heal Wounds Sarasota Memorial\'s Center for Wound Healing combines advanced therapies, proven medical techniques and individual consultations to heal wounds that have resisted treatment for weeks, months and even years.',
   ];
 
   static List<String> url = [
@@ -143,6 +148,8 @@ class Info {
     'https://www.smh.com/Contact-Us/Support-Group-Listings',
     'https://www.smh.com/Surgery',
     'https://www.smh.com/thoracic-surgery',
+    'https://www.smh.com/Home/Services/Urology-Services',
+    'https://www.smh.com/Home/Services/Vascular-Services',
     'https://www.smh.com/Home/Patients-Visitors/Visitor-Food-Services',
     'https://www.smh.com/Home/Services/Womens-Health-Services',
     'https://www.smh.com/Home/Services/Wound-Care',
