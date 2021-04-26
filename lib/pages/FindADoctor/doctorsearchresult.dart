@@ -431,7 +431,13 @@ class _DoctorSearchResultState extends State<DoctorSearchResult> {
                         label: "Specialties",
                         selectedItem: _currentSelectedValue,
                         maxHeight: MediaQuery.of(context).size.height * 0.6,
-                        items: [...widget.specialties.map((e) => e.toString())],
+
+                        items: [
+                          ...widget.specialties
+                              .skipWhile((item) => (item == "Administration" &&
+                                  !_isDoctorLoggedIn))
+                              .map((e) => e.toString())
+                        ],
                         onChanged: (value) async {
                           _totalResultCount = 0;
                           _page = 1;

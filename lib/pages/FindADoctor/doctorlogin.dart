@@ -79,10 +79,8 @@ class _DoctorLoginState extends State<DoctorLogin> {
                 child: _isLoading
                     ? CircularProgressIndicator()
                     : RaisedButton(
-                      color: UiColors.primaryColor,
+                        color: UiColors.primaryColor,
                         onPressed: () async {
-                          
-
                           if (_formKey.currentState.validate()) {
                             // Process data.
                             this.setState(() {
@@ -90,11 +88,11 @@ class _DoctorLoginState extends State<DoctorLogin> {
                             });
                             var isLoginSuccessful =
                                 await WebServiceHelper.login(
-                                    cellController.text,
-                                    dictationController.text);
+                                    cellController.text.trim(),
+                                    dictationController.text.trim());
 
                             if (isLoginSuccessful) {
-                              Navigator.pop(context,true);
+                              Navigator.pop(context, true);
                             } else {
                               UATheme.alert('Login parameters not correct');
                             }
