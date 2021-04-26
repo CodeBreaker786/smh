@@ -213,7 +213,7 @@ class _DoctorDetailViewState extends State<DoctorDetailView> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) => RequestAppointment(
-                                        doctorId: widget.doctor.accountId,
+                                        doctorId: widget.doctor.id,
                                       )));
                         },
                         color: Theme.of(context).primaryColor,
