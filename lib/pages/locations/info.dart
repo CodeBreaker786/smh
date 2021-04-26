@@ -1,23 +1,23 @@
 class Info {
   static List<String> title = [
-    'Cape Outpatient Surgery Center',
+    'Cape Surgery Center',
     'Heart Pavilion',
     'Bayside Center for Behavioral Health',
-    'SMH Sarasota Campus',
-    'University Parkway Health Care Center',
+    'SMH Sarasota Campus & ER',
+    'Health Care Center at University Parkway',
     'Urgent Care Center at University Parkway',
     'Urgent Care Center at St. Armands Circle',
     'Urgent Care Center at Bee Ridge',
     'Urgent Care Center at Stickney Point',
-    'HealthFit Powered by Sarasota Memorial',
-    'Clark Road Health Care Center',
+    'HealthFit - Powered by Sarasota Memorial',
+    'Health Care Center at Clark Road',
     'Nursing & Rehabilitation Center',
-    'Heritage Harbour Health Care Center',
+    'Health Care Center at Heritage Harbour',
     'Urgent Care Center at Heritage Harbour',
-    'Blackburn Point Health Care Center',
-    'Venice Health Care Center',
+    'Health Care Center at Blackburn Point',
+    'Health Care Center at Venice',
     'Urgent Care Center at Venice',
-    'North Port Health Care Center and ER',
+    'Health Care Center & ER at North Port',
   ];
   static List<String> image = [
     'assets/images/cape.jpg',
@@ -42,7 +42,7 @@ class Info {
   static List<String> address = [
     '1941 Waldemere Street\nSarasota, FL 34239',
     '1540 S. Tamiami Trail\nSarasota, FL 34239',
-    '1635 South Osprey Avenue.\nSarasota, FL, 34239',
+    '1650 South Osprey Avenue\nSarasota, FL, 34239',
     '1700 S. Tamiami Trail\nSarasota, FL 34239',
     '5350 University Parkway\nSarasota, FL 34243',
     '5350 University Parkway\nSarasota, FL 34243',
@@ -62,7 +62,7 @@ class Info {
   static List<String> mapAddress = [
     '1941+Waldemere+Street+Sarasota+FL+34239',
     '1540+S+Tamiami+Trail+Sarasota+FL+34239',
-    '1635+South+Osprey+Avenue+Sarasota+FL+34239',
+    '1650+South+Osprey+Avenue+Sarasota+FL+34239',
     '1700+S+Tamiami+Trail+Sarasota+FL+34239',
     '5350+University+Parkway+Sarasota+FL+34243',
     '5350+University+Parkway+Sarasota+FL+34243',
@@ -80,28 +80,29 @@ class Info {
     '2345+Bobcat+Village+Center+Road+North+Port+FL+34288',
   ];
   static List<String> description = [
-    '24/7 Emergency Care, outpatient radiology, laboratory and rehabilitation services, CardioPulmonary Rehabilitation, primary and speciality care physician offices',
-    '24/7 Emergency Care, outpatient radiology, laboratory and rehabilitation services, CardioPulmonary Rehabilitation, primary and speciality care physician offices',
-    '24/7 Emergency Care, outpatient radiology, laboratory and rehabilitation services, CardioPulmonary Rehabilitation, primary and speciality care physician offices',
-    '24/7 Emergency Care, outpatient radiology, laboratory and rehabilitation services, CardioPulmonary Rehabilitation, primary and speciality care physician offices',
-    '24/7 Emergency Care, outpatient radiology, laboratory and rehabilitation services, CardioPulmonary Rehabilitation, primary and speciality care physician offices',
-    '24/7 Emergency Care, outpatient radiology, laboratory and rehabilitation services, CardioPulmonary Rehabilitation, primary and speciality care physician offices',
-    '24/7 Emergency Care, outpatient radiology, laboratory and rehabilitation services, CardioPulmonary Rehabilitation, primary and speciality care physician offices',
-    '24/7 Emergency Care, outpatient radiology, laboratory and rehabilitation services, CardioPulmonary Rehabilitation, primary and speciality care physician offices',
-    '24/7 Emergency Care, outpatient radiology, laboratory and rehabilitation services, CardioPulmonary Rehabilitation, primary and speciality care physician offices',
-    '24/7 Emergency Care, outpatient radiology, laboratory and rehabilitation services, CardioPulmonary Rehabilitation, primary and speciality care physician offices',
-    '24/7 Emergency Care, outpatient radiology, laboratory and rehabilitation services, CardioPulmonary Rehabilitation, primary and speciality care physician offices',
-    '24/7 Emergency Care, outpatient radiology, laboratory and rehabilitation services, CardioPulmonary Rehabilitation, primary and speciality care physician offices',
-    '24/7 Emergency Care, outpatient radiology, laboratory and rehabilitation services, CardioPulmonary Rehabilitation, primary and speciality care physician offices',
-    '24/7 Emergency Care, outpatient radiology, laboratory and rehabilitation services, CardioPulmonary Rehabilitation, primary and speciality care physician offices',
-    '24/7 Emergency Care, outpatient radiology, laboratory and rehabilitation services, CardioPulmonary Rehabilitation, primary and speciality care physician offices',
-    '24/7 Emergency Care, outpatient radiology, laboratory and rehabilitation services, CardioPulmonary Rehabilitation, primary and speciality care physician offices',
-    '24/7 Emergency Care, outpatient radiology, laboratory and rehabilitation services, CardioPulmonary Rehabilitation, primary and speciality care physician offices',
-    '24/7 Emergency Care, outpatient radiology, laboratory and rehabilitation services, CardioPulmonary Rehabilitation, primary and speciality care physician offices',
+    'Same-day Surgery Center', //SMH Cape Outpatient Surgery Center
+    'Outpatient Valve Clinic', //SMH Heart Pavilion
+    'Mental health assessments, inpatient programs for short-term, intensive psychiatric treatment for adults, adolescents and children', //Bayside Center for Behavioral Health
+    '24/7 Emergency Care, outpatient radiology, laboratory and rehabilitation services, CardioPulmonary Rehabilitation, primary and speciality care physician offices', //SMH Main Campus
+    'Outpatient services including Radiology/Imaging Services, Full-service Lab Testing/Bloodwork, Rehabilitation Services, Anticoagulation Clinic, Primary, Specialty, Pediatrics & Family Care.',
+    'Urgent Care Center adjacent to this location with fast treatment for non-life-threatening illnesses and injuries for patients older than 3 months, onsite imaging and laboratory tests, flu shots, other immunizations and student/sports physicals.', //University Parkway Health Care Center
+    'Fast treatment for non-life-threatening illnesses and injuries for patients older than 3 months, onsite imaging and laboratory tests, flu shots, other immunizations and student/sports physicals. \nAdditional services at this location include Radiology/Imaging Services, Full-service Lab Testing/Bloodwork, Rehabilitation Services, Anticoagulation Clinic, Primary, Specialty, Pediatrics & Family Care.', //Urgent Care Center at University Parkway
+    'Fast treatment for non-life-threatening illnesses and injuries for patients older than 3 months, onsite imaging and laboratory tests, flu shots, other immunizations and student/sports physicals', //Urgent Care Center at St. Armands Circle
+    'Fast treatment for non-life-threatening illnesses and injuries for patients older than 3 months, onsite imaging and laboratory tests, flu shots, other immunizations and student/sports physicals', //Urgent Care Center at Bee Ridge
+    'Fast treatment for non-life-threatening illnesses and injuries for patients older than 3 months, onsite imaging and laboratory tests, flu shots, other immunizations and student/sports physicals', //Urgent Care Center at Stickney Point
+    'Region\'s only medically integrated fitness center, offering a higher level of safety and programs focused on disease prevention, nutrition and weight loss, strength and balance, rehabilitation, and wellness.', //HealthFit Powered by Sarasota Memorial
+    'Outpatient services including Neuroscience Center of Excellence, Radiology Services, Full-service Laboratory Testing, Rehabilitation & Specialty Care, HealthFit – Powered by Sarasota Memorial, Primary, Pediatric & Family Care, Bariatric & Metabolic Health Center, Anticoagulation Clinic.', //Clark Road Health Care Center
+    'Short-term and Long-term Inpatient Rehabilitation, Daily Physical, Occupational and Speech, Therapies, 24-hour Nursing Care, Respiratory Therapies (24/7) and Pulmonary Conditioning.', //Nursing & Rehabilitation Center
+    'Outpatient services including Radiology/Imaging Services, Full-service Lab Testing, Rehabilitation Services, Diabetes Treatment Services, Anticoagulation Clinic, Primary Family Care. \nUrgent Care Center at this location with fast treatment for non-life-threatening illnesses and injuries for patients older than 3 months, onsite imaging and laboratory tests, flu shots, other immunizations and student/sports physicals.', //Heritage Harbour Health Care Center
+    'Fast treatment for non-life-threatening illnesses and injuries for patients older than 3 months, onsite imaging and laboratory tests, flu shots, other immunizations and student/sports physicals.', //Urgent Care Center at Heritage Harbour
+    'Outpatient services including Radiology/Imaging Services, Full-service Laboratory Testing, Primary, Specialty, Pediatrics & Family Care, Diabetes Treatment Services, Anticoagulation Clinic, Heart Failure Clinic.', //Blackburn Point Health Care Center
+    'Outpatient services including Radiology/Imaging Services, Full-service Lab Testing, Primary, Specialty, Pediatrics & Family Care.\nUrgent Care Center at this location with fast treatment for non-life-threatening illnesses and injuries for patients older than 3 months, onsite imaging and laboratory tests, flu shots, other immunizations and student/sports physicals.', //Venice HealthCare Center
+    'Fast treatment for non-life-threatening illnesses and injuries for patients older than 3 months, onsite imaging and laboratory tests, flu shots, other immunizations and student/sports physicals.\nAdditional services at this location include Radiology/Imaging Services, Full-service Lab Testing/Bloodwork, Anticoagulation Clinic.', //Urgent Care At Venice
+    '24/7  Emergency Care, outpatient Radiology, Full-service Laboratory Testing, Primary, Pediatrics & Family Care, Rehabilitation Services.', //Northport Health Care
   ];
   static List<String> url = [
     '9419171900', //SMH Cape Outpatient Surgery Center
-    '9419172328', //SMH Heart Pavilion
+    '9419176968', //SMH Heart Pavilion
     '9419177760', //Bayside Center for Behavioral Health
     '9419179000', //SMH Main Campus
     '9419174777', //University Parkway Health Care Center
