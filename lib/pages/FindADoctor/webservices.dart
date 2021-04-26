@@ -6,7 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class WebServiceConstants {
   static final baseURL =
-      'https://yj1hczi4wj.execute-api.us-east-1.amazonaws.com/dev/doctor';
+      'https://qam78opq5j.execute-api.us-east-1.amazonaws.com/prod/doctor';
 
   //prod URL https://qc8wrbd1o9.execute-api.us-east-1.amazonaws.com/prod/doctor
   //dev URL - https://yj1hczi4wj.execute-api.us-east-1.amazonaws.com/dev/doctor
