@@ -1,6 +1,6 @@
  
 
-class Info {
+class ServicesInfo {
   static List<String> title = [
     'Anticoagulation Clinics',
     'Bariatric Program',
