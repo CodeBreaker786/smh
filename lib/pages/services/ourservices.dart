@@ -52,12 +52,12 @@ class _OurServicesState extends State<OurServices> {
 
   setData() {
     list = [];
-    for (int i = 0; i < Info.title.length; i++) {
+    for (int i = 0; i < ServicesInfo.title.length; i++) {
       ServiceItem serviceItem = new ServiceItem();
-      serviceItem.title = Info.title[i];
-      serviceItem.url = Info.url[i];
-      serviceItem.description = Info.description[i];
-      serviceItem.image = Info.image[i];
+      serviceItem.title = ServicesInfo.title[i];
+      serviceItem.url = ServicesInfo.url[i];
+      serviceItem.description = ServicesInfo.description[i];
+      serviceItem.image = ServicesInfo.image[i];
       list.add(serviceItem);
     }
   }

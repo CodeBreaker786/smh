@@ -1,4 +1,3 @@
- 
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
@@ -32,7 +31,8 @@ class _SplashScreenState extends State<SplashScreen> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String onboarding = prefs.getString('onboarding');
     if (onboarding == null) {
-      bool status =await Navigator.push(context,MaterialPageRoute(builder: (context)=>OnBoardingPage()));
+      bool status = await Navigator.push(
+          context, MaterialPageRoute(builder: (context) => OnBoardingPage()));
       if (status) {
         await getData();
         Navigation.closeOpen(
@@ -67,6 +67,7 @@ class _SplashScreenState extends State<SplashScreen> {
       ),
     );
   }
+
   getData() async {
     await getLocation();
     setData();
@@ -115,7 +116,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   setData() {
-    for (int i = 0; i < 18; i++) {
+    for (int i = 0; i < Info.title.length; i++) {
       LocationItem serviceItem = new LocationItem();
       serviceItem.title = Info.title[i];
       serviceItem.url = Info.url[i];

@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 class Info {
+=======
+ 
+
+class ServicesInfo {
+>>>>>>> 83caad34decef31ad3de1442c5ec609b318926c3
   static List<String> title = [
     'Anticoagulation Clinics',
     'Bariatric Program',
