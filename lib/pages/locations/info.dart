@@ -18,6 +18,7 @@ class Info {
     'Health Care Center at Venice',
     'Urgent Care Center at Venice',
     'Health Care Center & ER at North Port',
+    'Home Care',
   ];
   static List<String> image = [
     'assets/images/cape.jpg',
@@ -38,6 +39,7 @@ class Info {
     'assets/images/venice.jpg',
     'assets/images/venice.jpg',
     'assets/images/northport.jpg',
+    'assets/image/HomeCare.jpg',
   ];
   static List<String> address = [
     '1941 Waldemere Street\nSarasota, FL 34239',
@@ -58,6 +60,7 @@ class Info {
     '997 N. US 41 Bypass\nVenice, FL 34285',
     '997 N. US 41 Bypass\nVenice, FL 34285',
     '2345 Bobcat Village Center Road\nNorth Port, FL 34288',
+    '6075 Rand Blvd. Suite 3\n Sarasota, FL 34239',
   ];
   static List<String> mapAddress = [
     '1941+Waldemere+Street+Sarasota+FL+34239',
@@ -78,6 +81,7 @@ class Info {
     '997+N+US+41+Bypass+Venice+FL+34285',
     '997+US+41+Bypass+Venice+FL+34285',
     '2345+Bobcat+Village+Center+Road+North+Port+FL+34288',
+    '6075+Rand+Blvd+Suite+3+Sarasota+FL+34239',
   ];
   static List<String> description = [
     'Same-day Surgery Center', //SMH Cape Outpatient Surgery Center
@@ -99,6 +103,7 @@ class Info {
     'Outpatient services including Radiology/Imaging Services, Full-service Lab Testing, Primary, Specialty, Pediatrics & Family Care.\nUrgent Care Center at this location with fast treatment for non-life-threatening illnesses and injuries for patients older than 3 months, onsite imaging and laboratory tests, flu shots, other immunizations and student/sports physicals.', //Venice HealthCare Center
     'Fast treatment for non-life-threatening illnesses and injuries for patients older than 3 months, onsite imaging and laboratory tests, flu shots, other immunizations and student/sports physicals.\nAdditional services at this location include Radiology/Imaging Services, Full-service Lab Testing/Bloodwork, Anticoagulation Clinic.', //Urgent Care At Venice
     '24/7  Emergency Care, outpatient Radiology, Full-service Laboratory Testing, Primary, Pediatrics & Family Care, Rehabilitation Services.', //Northport Health Care
+    'In-home skilled nursing care, rehabilitation therapy and personal care for patients recovering at home from an operation, illness, injury or medical condition.', //Home Care
   ];
   static List<String> url = [
     '9419171900', //SMH Cape Outpatient Surgery Center
@@ -119,6 +124,7 @@ class Info {
     '9419524250', //Venice HealthCare Center
     '9419524250', //Urgent Care At Venice
     '9412572800', //Northport Health Care
+    '941-917-7730', //Home Care
   ];
 
   static List<double> latitude = [
@@ -140,6 +146,7 @@ class Info {
     27.1083299, //Venice HealthCare Center
     27.1083299, //Urgent Care At Venice
     27.0560097, //Northport Health Care
+    27.2621701, //Home Care
   ];
 
   static List<double> longitude = [
@@ -161,5 +168,6 @@ class Info {
     -82.4459322, //Venice HealthCare Center
     -82.4459322, //Urgent Care At Venice
     -82.1613481, //Northport Health Care
+    -82.4590738, //Home Care
   ];
 }

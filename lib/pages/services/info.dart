@@ -1,5 +1,3 @@
- 
-
 class Info {
   static List<String> title = [
     'Anticoagulation Clinics',
@@ -42,7 +40,7 @@ class Info {
   static List<String> image = [
     'assets/images/i1.jpeg',
     'assets/images/bariatric.jpg',
-    'assets/images/Behaviorial.jpg',
+    'assets/images/Behavioral.jpg',
     'assets/images/Cancer-Care.jpg',
     'assets/images/Cardiac.jpg',
     'assets/images/i6.jpeg',
