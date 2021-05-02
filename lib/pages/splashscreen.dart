@@ -1,10 +1,9 @@
- 
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
 import 'package:sarasotaapp/model/locationitem.dart';
 import 'package:sarasotaapp/navigation.dart';
-import 'package:sarasotaapp/pages/locations/info.dart';
+import 'package:sarasotaapp/pages/locations/location_info.dart';
 import 'package:sarasotaapp/pages/on_boarding_screen.dart';
 import 'package:sarasotaapp/uatheme.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -32,7 +31,8 @@ class _SplashScreenState extends State<SplashScreen> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String onboarding = prefs.getString('onboarding');
     if (onboarding == null) {
-      bool status =await Navigator.push(context,MaterialPageRoute(builder: (context)=>OnBoardingPage()));
+      bool status = await Navigator.push(
+          context, MaterialPageRoute(builder: (context) => OnBoardingPage()));
       if (status) {
         await getData();
         Navigation.closeOpen(
@@ -67,6 +67,7 @@ class _SplashScreenState extends State<SplashScreen> {
       ),
     );
   }
+
   getData() async {
     await getLocation();
     setData();
@@ -115,19 +116,15 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   setData() {
-    for (int i = 0; i < 18; i++) {
-      LocationItem serviceItem = new LocationItem();
-      serviceItem.title = Info.title[i];
-      serviceItem.url = Info.url[i];
-      serviceItem.description = Info.description[i];
-      serviceItem.image = Info.image[i];
-      serviceItem.address = Info.address[i];
-      serviceItem.latitude = Info.latitude[i];
-      serviceItem.longitude = Info.longitude[i];
-      serviceItem.mapAddress = Info.mapAddress[i];
-      serviceItem.distance = calculateDistance(
-          Info.latitude[i], Info.longitude[i], latitude, longitude);
-      list.add(serviceItem);
+    LocationInfo locationInfo = LocationInfo();
+    for (int i = 0; i < locationInfo.locationitems.length; i++) {
+      LocationItem locationItem = locationInfo.locationitems[i];
+      locationItem.distance = calculateDistance(
+          locationInfo.locationitems[i].latitude,
+          locationInfo.locationitems[i].longitude,
+          latitude,
+          longitude);
+      list.add(locationItem);
     }
   }
 }

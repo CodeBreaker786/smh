@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:location/location.dart';
 import 'package:sarasotaapp/model/doctor.dart';
 import 'package:sarasotaapp/pages/FindADoctor/RequestAppointment.dart';
+import 'package:sarasotaapp/pages/FindADoctor/google_map_window.dart';
 import 'package:sarasotaapp/pages/FindADoctor/helper.dart';
 import 'package:sarasotaapp/pages/FindADoctor/webservices.dart';
 import 'package:sarasotaapp/utils/customLoader.dart';
@@ -213,7 +214,7 @@ class _DoctorDetailViewState extends State<DoctorDetailView> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) => RequestAppointment(
-                                        doctorId: widget.doctor.accountId,
+                                        doctorId: widget.doctor.id,
                                       )));
                         },
                         color: Theme.of(context).primaryColor,
@@ -324,7 +325,18 @@ class _DoctorDetailViewState extends State<DoctorDetailView> {
                                     : Container(),
                                 SizedBox(
                                   height: 20,
-                                )
+                                ),
+                                widget.doctor.latitude != null
+                                    ? Container(
+                                        height: 200,
+                                        child: MapWindow(
+                                          latitude: widget.doctor.latitude,
+                                          longitude: widget.doctor.longitude,
+                                        ))
+                                    : SizedBox(),
+                                SizedBox(
+                                  height: 50,
+                                ),
                               ],
                             ),
                           ),

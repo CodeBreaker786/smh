@@ -2,15 +2,14 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:sarasotaapp/colors.dart';
 import 'package:sarasotaapp/pages/FindADoctor/RequestAppointment.dart';
 import 'package:sarasotaapp/pages/FindADoctor/doctor_detail_view.dart';
 import 'package:sarasotaapp/pages/FindADoctor/doctordetail.dart';
+
 import 'package:sarasotaapp/pages/FindADoctor/doctorlogin.dart';
 import 'package:sarasotaapp/pages/FindADoctor/strings.dart';
 import 'package:sarasotaapp/utils/customLoader.dart';
 import 'package:sarasotaapp/utils/show_flushbar.dart';
-
 import '../../uatheme.dart';
 import 'Webservices.dart';
 import '../../model/doctor.dart';
@@ -158,7 +157,7 @@ class _DoctorSearchResultState extends State<DoctorSearchResult> {
                             if (position < _searchResults.length) {
                               return Padding(
                                 padding: const EdgeInsets.symmetric(
-                                    horizontal: 25, vertical: 5),
+                                    horizontal: 8, vertical: 5),
                                 child: Card(
                                   //clipBehavior: Clip.antiAlias,
                                   color: Color(0xFF639ec8),
@@ -431,7 +430,13 @@ class _DoctorSearchResultState extends State<DoctorSearchResult> {
                         label: "Specialties",
                         selectedItem: _currentSelectedValue,
                         maxHeight: MediaQuery.of(context).size.height * 0.6,
-                        items: [...widget.specialties.map((e) => e.toString())],
+
+                        items: [
+                          ...widget.specialties
+                              .skipWhile((item) => (item == "Administration" &&
+                                  !_isDoctorLoggedIn))
+                              .map((e) => e.toString())
+                        ],
                         onChanged: (value) async {
                           _totalResultCount = 0;
                           _page = 1;
@@ -500,174 +505,5 @@ class _DoctorSearchResultState extends State<DoctorSearchResult> {
                   ),
                 ),
     );
-  }
-
-  Widget _buildRow(int i) {
-    return Card(
-        margin: EdgeInsets.fromLTRB(16, 8, 16, 8),
-        child: Column(
-          children: <Widget>[
-            Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(16, 16, 0, 16),
-                        child: CachedNetworkImage(
-                          imageUrl: _searchResults[i].image,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Flexible(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: _builDoctorDetailColumn(_searchResults[i]),
-                    ),
-                  ),
-                ]),
-            Container(
-              padding: EdgeInsets.all(8),
-              child: Wrap(
-                spacing: 8,
-                alignment: WrapAlignment.center,
-                children: <Widget>[
-                  _searchResults[i].availabelForreferral == "Yes"
-                      ? RaisedButton(
-                          color: Color(0xff7e7e7e),
-                          onPressed: () {
-                            Navigator.of(context).push(
-                              new MaterialPageRoute(
-                                fullscreenDialog: true,
-                                builder: (BuildContext context) =>
-                                    new RequestAppointment(
-                                        doctorId: _searchResults[i].id),
-                              ),
-                            );
-                          },
-                          child: Text(Strings.requestAppointment,
-                              style: TextStyle(color: Colors.white)),
-                        )
-                      : Padding(
-                          padding: EdgeInsets.zero,
-                        ),
-                  RaisedButton(
-                    onPressed: () {
-                      Navigator.of(context).push(
-                        new MaterialPageRoute(
-                          builder: (BuildContext context) =>
-                              new DoctorDetail(_searchResults[i].id),
-                        ),
-                      );
-                    },
-                    child: Text(Strings.detailedProfile,
-                        style: TextStyle(color: Colors.white)),
-                  ),
-                  _isDoctorLoggedIn
-                      ? RaisedButton(
-                          onPressed: () {
-                            _sendCell(_searchResults[i].id);
-                          },
-                          color: Color(
-                            0xff8CC63E,
-                          ),
-                          child: Text(
-                              _sendingCell ? Strings.sending : Strings.sendCell,
-                              style: TextStyle(
-                                color: Colors.white,
-                              )),
-                        )
-                      : Padding(
-                          padding: EdgeInsets.zero,
-                        ),
-                ],
-              ),
-            ),
-          ],
-        ));
-  }
-
-  List<Widget> _builDoctorDetailColumn(Doctor doctor) {
-    var widgets = [
-      Padding(
-          padding: const EdgeInsets.fromLTRB(12, 16, 8, 8),
-          child: Text(
-            "${doctor.fullName}",
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            textAlign: TextAlign.left,
-          ))
-    ];
-
-    //telephone
-    if (doctor.phone != null) {
-      widgets.add(
-          Helper.buildRichText(title: Strings.telephone, body: doctor.phone));
-    }
-
-    //address
-    if (doctor.address != null) {
-      widgets.add(Helper.buildRichText(
-          title: Strings.address,
-          body:
-              "${doctor.address.street}, ${doctor.address.city}, ${doctor.address.state}, ${doctor.address.postalCode}"));
-    }
-    //specialities
-    if (doctor.specialities != null) {
-      widgets.add(Helper.buildRichText(
-          title: Strings.specialities, body: doctor.specialities));
-    }
-
-    //board certification
-    if (doctor.boardCertifications != null) {
-      widgets.add(Helper.buildRichText(
-          title: Strings.boardCertifications,
-          body: doctor.boardCertifications));
-    }
-
-    //website
-    if (doctor.website != null) {
-      widgets.add(Padding(
-        padding: const EdgeInsets.fromLTRB(12, 8, 8, 8),
-        child: RichText(
-          text: TextSpan(
-            style: TextStyle(fontSize: 16.0, color: Colors.black),
-            children: [
-              TextSpan(
-                  text: Strings.website,
-                  style: TextStyle(fontWeight: FontWeight.bold)),
-              TextSpan(
-                text: doctor.website,
-                style: TextStyle(color: Colors.blue),
-                recognizer: TapGestureRecognizer()
-                  ..onTap = () {
-                    Helper.launchURL('https://${doctor.website}');
-                  },
-              ),
-            ],
-          ),
-        ),
-      ));
-    }
-
-    return widgets;
-  }
-
-  _sendCell(doctorId) async {
-    this.setState(() {
-      _sendingCell = true;
-    });
-
-    var success = await WebServiceHelper.sendCell(doctorId);
-    if (success) {
-      UATheme.alert(Strings.cellSent);
-    }
-
-    this.setState(() {
-      _sendingCell = false;
-    });
   }
 }

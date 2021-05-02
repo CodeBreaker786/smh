@@ -22,65 +22,58 @@ class _ServiceDetailsState extends State<ServiceDetails> {
     return Scaffold(
         appBar: AppBar(
           title: UALabel(
-            text: 'Services',
+            text: widget.info.title,
             size: UATheme.headingSize(),
           ),
         ),
-        body: Column(
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(0.0),
-              child: Expanded(
-                child: Image.asset(widget.info.image),
-              ),
-            ),
-            Expanded(
-              flex: 2,
-              child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    UALabel(
-                      text: widget.info.title,
-                      color: Colors.grey,
+        body: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Image.asset(widget.info.image, fit: BoxFit.cover),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  UALabel(
+                    text: widget.info.title,
+                    color: Colors.grey,
+                    paddingLeft: 20,
+                    paddingTop: 20,
+                    paddingRight: 40,
+                    bold: true,
+                    size: UATheme.headingSize(),
+                  ),
+                  UALabel(
+                    text: widget.info.description,
+                    color: Colors.grey,
+                    paddingLeft: 20,
+                    paddingBottom: 20,
+                    paddingTop: 20,
+                    paddingRight: 40,
+                  ),
+                  Container(
+                    width: double.infinity,
+                    child: UAButton(
                       paddingLeft: 20,
-                      paddingTop: 20,
-                      paddingRight: 40,
-                      bold: true,
-                      size: UATheme.headingSize(),
+                      paddingRight: 20,
+                      onPressed: () {
+                        Navigation.open(
+                            context,
+                            SMHEvents(
+                              url: widget.info.url,
+                            ));
+                      },
+                      text: 'LEARN MORE',
+                      height: 50,
+                      color: AppSettings.primaryColor,
+                      textColor: AppSettings.appBackground,
+                      paddingBottom: 10,
                     ),
-                    UALabel(
-                      text: widget.info.description,
-                      color: Colors.grey,
-                      paddingLeft: 20,
-                      paddingBottom: 20,
-                      paddingTop: 20,
-                      paddingRight: 40,
-                    ),
-                    Container(
-                      width: double.infinity,
-                      child: UAButton(
-                        paddingLeft: 20,
-                        paddingRight: 20,
-                        onPressed: () {
-                          Navigation.open(
-                              context,
-                              SMHEvents(
-                                url: widget.info.url,
-                              ));
-                        },
-                        text: 'LEARN MORE',
-                        height: 50,
-                        color: AppSettings.primaryColor,
-                        textColor: AppSettings.appBackground,
-                        paddingBottom: 10,
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            )
-          ],
+                  )
+                ],
+              )
+            ],
+          ),
         ));
   }
 }
