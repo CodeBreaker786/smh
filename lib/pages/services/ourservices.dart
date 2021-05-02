@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sarasotaapp/model/serviceitem.dart';
 import 'package:sarasotaapp/navigation.dart';
-import 'package:sarasotaapp/pages/services/info.dart';
+
 import 'package:sarasotaapp/pages/services/servicedetails.dart';
+import 'package:sarasotaapp/pages/services/services_info.dart';
 import 'package:sarasotaapp/uatheme.dart';
 import 'package:sarasotaapp/widgets/ualabel.dart';
 
@@ -16,7 +17,6 @@ class _OurServicesState extends State<OurServices> {
 
   @override
   Widget build(BuildContext context) {
-    setData();
     return Scaffold(
       appBar: AppBar(
         title: UALabel(
@@ -24,42 +24,33 @@ class _OurServicesState extends State<OurServices> {
           size: UATheme.headingSize(),
         ),
       ),
-      body: ListView.builder(
-          itemCount: list.length,
-          itemBuilder: (context, i) {
-            return ListTile(
-              onTap: () {
-                Navigation.open(
-                    context,
-                    ServiceDetails(
-                      info: list[i],
-                    ));
-              },
-              title: UALabel(
-                paddingBottom: 20,
-                paddingTop: 20,
-                paddingLeft: 20,
-                text: list[i].title,
-              ),
-              trailing: Icon(
-                Icons.arrow_forward_ios,
-                color: Colors.green,
-              ),
-            );
-          }),
+      body: ListView.separated(
+        itemCount: ServicesInfo.serviceitems.length,
+        itemBuilder: (context, i) {
+          return ListTile(
+            onTap: () {
+              Navigation.open(
+                  context,
+                  ServiceDetails(
+                    info: ServicesInfo.serviceitems[i],
+                  ));
+            },
+            title: UALabel(
+              text: ServicesInfo.serviceitems[i].title,
+            ),
+            trailing: Icon(
+              Icons.arrow_forward_ios,
+              color: Colors.grey,
+            ),
+          );
+        },
+        separatorBuilder: (context, idex) {
+          return Divider(
+            thickness: 1,
+          );
+        },
+      ),
     );
-  }
-
-  setData() {
-    list = [];
-    for (int i = 0; i < ServicesInfo.title.length; i++) {
-      ServiceItem serviceItem = new ServiceItem();
-      serviceItem.title = ServicesInfo.title[i];
-      serviceItem.url = ServicesInfo.url[i];
-      serviceItem.description = ServicesInfo.description[i];
-      serviceItem.image = ServicesInfo.image[i];
-      list.add(serviceItem);
-    }
   }
 
   line() {
