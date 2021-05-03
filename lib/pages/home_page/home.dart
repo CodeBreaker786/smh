@@ -87,35 +87,34 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Expanded(
-                    child: Container(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 20.0,
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            InkWell(
-                              child: Icon(
-                                Icons.menu,
-                                color: Colors.white,
-                              ),
-                              onTap: () {
-                                _controller.toggle();
-                              },
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * .03,
+                  ),
+                  Container(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20.0, vertical: 30),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          InkWell(
+                            child: Icon(
+                              Icons.menu,
+                              color: Colors.white,
                             ),
-                            Text(
-                              'Sarasota Memorial',
-                              style:
-                                  TextStyle(fontSize: 18, color: Colors.white),
-                              // style: Theme.of(context).textTheme.bodyText1,
-                            ),
-                            Container(
-                              width: MediaQuery.of(context).size.width * .05,
-                            )
-                          ],
-                        ),
+                            onTap: () {
+                              _controller.toggle();
+                            },
+                          ),
+                          Text(
+                            'Sarasota Memorial',
+                            style: TextStyle(fontSize: 18, color: Colors.white),
+                            // style: Theme.of(context).textTheme.bodyText1,
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width * .05,
+                          )
+                        ],
                       ),
                     ),
                   ),
@@ -192,100 +191,104 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                           flex: 2,
                           child: Stack(children: [
                             Container(
+                              alignment: Alignment.center,
                               margin: EdgeInsets.only(left: 14),
                               height: MediaQuery.of(context).size.height * .25,
-                              child: ListView(
-                                scrollDirection: Axis.horizontal,
-                                children: [
-                                  buildListTile(
-                                      title: 'Find a Doctor',
+                              child: Center(
+                                child: ListView(
+                                  scrollDirection: Axis.horizontal,
+                                  children: [
+                                    buildListTile(
+                                        title: 'Find a Doctor',
+                                        path:
+                                            'assets/images/main/find_a_doctor.png',
+                                        callBack: () {
+                                          Navigator.of(context).push(
+                                            SlideRightRoute(
+                                              page: GetSpecialties(),
+                                            ),
+                                          );
+                                        }),
+                                    buildListTile(
+                                        title: 'Our Locations',
+                                        path:
+                                            'assets/images/main/ourlocations.png',
+                                        callBack: () {
+                                          Navigator.of(context).push(
+                                            MaterialPageRoute(builder:
+                                                (BuildContext context) {
+                                              return new NearestLocations(
+                                                  cardsData: widget.cardsData);
+                                            }),
+                                          );
+                                        }),
+                                    buildListTile(
+                                        title: 'Symptom Checker',
+                                        path:
+                                            'assets/images/main/sympton_checker.png',
+                                        callBack: () {
+                                          Navigator.of(context).push(
+                                            MaterialPageRoute(builder:
+                                                (BuildContext context) {
+                                              return SymptomChecker();
+                                            }),
+                                          );
+                                        }),
+                                    buildListTile(
+                                        title: 'Surgery Status',
+                                        path:
+                                            'assets/images/main/surgery_status.png',
+                                        callBack: () {
+                                          Navigator.of(context).push(
+                                            MaterialPageRoute(builder:
+                                                (BuildContext context) {
+                                              return SurgeryStatus(
+                                                url:
+                                                    'https://surgerystatus.smh.com',
+                                              );
+                                            }),
+                                          );
+                                        }),
+                                    buildListTile(
+                                        title: 'SMH Events',
+                                        path:
+                                            'assets/images/main/eventscalendar.png',
+                                        callBack: () {
+                                          Navigator.of(context).push(
+                                            MaterialPageRoute(builder:
+                                                (BuildContext context) {
+                                              return SMHEvents(
+                                                url:
+                                                    'https://www.smh.com/Calendar',
+                                              );
+                                            }),
+                                          );
+                                        }),
+                                    buildListTile(
+                                      title: 'SMH Wayfinder',
                                       path:
-                                          'assets/images/main/find_a_doctor.png',
+                                          'assets/images/main/smhwayfinder.png',
                                       callBack: () {
-                                        Navigator.of(context).push(
-                                          SlideRightRoute(
-                                            page: GetSpecialties(),
-                                          ),
-                                        );
-                                      }),
-                                  buildListTile(
-                                      title: 'Our Locations',
-                                      path:
-                                          'assets/images/main/ourlocations.png',
-                                      callBack: () {
-                                        Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                              builder: (BuildContext context) {
-                                            return new NearestLocations(
-                                                cardsData: widget.cardsData);
-                                          }),
-                                        );
-                                      }),
-                                  buildListTile(
-                                      title: 'Symptom Checker',
-                                      path:
-                                          'assets/images/main/sympton_checker.png',
-                                      callBack: () {
-                                        Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                              builder: (BuildContext context) {
-                                            return SymptomChecker();
-                                          }),
-                                        );
-                                      }),
-                                  buildListTile(
-                                      title: 'Surgery Status',
-                                      path:
-                                          'assets/images/main/surgery_status.png',
-                                      callBack: () {
-                                        Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                              builder: (BuildContext context) {
-                                            return SurgeryStatus(
-                                              url:
-                                                  'https://surgerystatus.smh.com',
-                                            );
-                                          }),
-                                        );
-                                      }),
-                                  buildListTile(
-                                      title: 'SMH Events',
-                                      path:
-                                          'assets/images/main/eventscalendar.png',
-                                      callBack: () {
-                                        Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                              builder: (BuildContext context) {
-                                            return SMHEvents(
-                                              url:
-                                                  'https://www.smh.com/Calendar',
-                                            );
-                                          }),
-                                        );
-                                      }),
-                                  buildListTile(
-                                    title: 'SMH Wayfinder',
-                                    path: 'assets/images/main/smhwayfinder.png',
-                                    callBack: () {
-                                      StoreRedirect.redirect(
-                                          androidAppId:
-                                              "com.logicjunction.smh.wayfinder",
-                                          iOSAppId: "1234682654");
-                                    },
-                                  ),
-                                  buildListTile(
-                                      title: 'Our Services',
-                                      path:
-                                          'assets/images/main/our_serives.png',
-                                      callBack: () {
-                                        Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                              builder: (BuildContext context) {
-                                            return OurServices();
-                                          }),
-                                        );
-                                      }),
-                                ],
+                                        StoreRedirect.redirect(
+                                            androidAppId:
+                                                "com.logicjunction.smh.wayfinder",
+                                            iOSAppId: "1234682654");
+                                      },
+                                    ),
+                                    buildListTile(
+                                        title: 'Our Services',
+                                        path:
+                                            'assets/images/main/our_serives.png',
+                                        callBack: () {
+                                          Navigator.of(context).push(
+                                            MaterialPageRoute(builder:
+                                                (BuildContext context) {
+                                              return OurServices();
+                                            }),
+                                          );
+                                        }),
+                                  ],
+                                ),
                               ),
                             ),
                           ]),
