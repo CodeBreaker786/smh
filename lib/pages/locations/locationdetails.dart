@@ -8,8 +8,6 @@ import 'package:sarasotaapp/uatheme.dart';
 import 'package:sarasotaapp/utils/url_luncher.dart';
 import 'package:sarasotaapp/widgets/uabutton.dart';
 import 'package:sarasotaapp/widgets/ualabel.dart';
- 
- 
 
 class LocationDetails extends StatefulWidget {
   final LocationItem info;
@@ -116,6 +114,7 @@ class _LocationDetailsState extends State<LocationDetails> {
                       paddingLeft: 20,
                       paddingBottom: 20,
                       paddingTop: 20,
+                      paddingRight: 20,
                       color: Colors.grey.shade500,
                     ),
                   ],
@@ -125,6 +124,4 @@ class _LocationDetailsState extends State<LocationDetails> {
           ],
         ));
   }
-
- 
 }

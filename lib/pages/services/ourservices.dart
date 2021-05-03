@@ -40,7 +40,7 @@ class _OurServicesState extends State<OurServices> {
             ),
             trailing: Icon(
               Icons.arrow_forward_ios,
-              color: Colors.grey,
+              color: Color(0xff8cc63d),
             ),
           );
         },

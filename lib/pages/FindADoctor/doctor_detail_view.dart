@@ -255,10 +255,10 @@ class _DoctorDetailViewState extends State<DoctorDetailView> {
                                         padding: const EdgeInsets.symmetric(
                                             horizontal: 16),
                                         child: Text(
-                                            '${widget.doctor.address.street} ${widget.doctor.address.city} ${widget.doctor.address.state} ${widget.doctor.address.postalCode}',
-                                            style: TextStyle(
-                                                color: Colors.grey,
-                                                fontSize: 18)),
+                                          '${widget.doctor.address.street} ${widget.doctor.address.city} ${widget.doctor.address.state} ${widget.doctor.address.postalCode}',
+                                          style: TextStyle(
+                                              color: Colors.grey, fontSize: 18),
+                                        ),
                                       )
                                     : Container(),
                                 widget.doctor.specialities != null
@@ -349,10 +349,12 @@ class _DoctorDetailViewState extends State<DoctorDetailView> {
                                         padding: const EdgeInsets.symmetric(
                                             horizontal: 16),
                                         child: InkWell(
-                                          child: Text("Get Direction",
-                                              style: TextStyle(
-                                                  color: Colors.blue,
-                                                  fontSize: 18)),
+                                          child: Text(
+                                            "Get Directions",
+                                            style: TextStyle(
+                                                color: Colors.blue,
+                                                fontSize: 18),
+                                          ),
                                           onTap: () async {
                                             String address =
                                                 "${widget.doctor.address.street.replaceAll(" ", "+").replaceAll(",", "")}+${widget.doctor.address.city.replaceAll(" ", "+")}+${widget.doctor.address.state.replaceAll(" ", "+")}+${widget.doctor.address.postalCode.replaceAll(" ", "+")}";

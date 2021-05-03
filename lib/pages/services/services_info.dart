@@ -1,7 +1,7 @@
 import 'package:sarasotaapp/model/serviceitem.dart';
 
 class ServicesInfo {
- static List<ServiceItem> serviceitems = [
+  static List<ServiceItem> serviceitems = [
     ServiceItem(
       title: 'Anticoagulation Clinics',
       image: 'assets/images/i1.jpeg',
@@ -73,7 +73,7 @@ class ServicesInfo {
     ),
     ServiceItem(
       title: 'Emergency & Trauma Care',
-      image: 'assets/images/Emergency-Trauma.jpg',
+      image: 'assets/images/New-Trauma.jpg',
       description:
           'The 24-hour SMH Emergency Care and Trauma Center relies on a team of highly specialized, board-certified trauma surgeons, emergency physicians, subspecialists, and trauma and emergency care nurses to provide swift, life-saving treatment and interventions.',
       url: 'https://www.smh.com/trauma',
@@ -255,6 +255,4 @@ class ServicesInfo {
       url: 'https://www.smh.com/Home/Services/Wound-Care',
     ),
   ];
-
- 
 }
