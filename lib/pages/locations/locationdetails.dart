@@ -5,9 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:sarasotaapp/appsettings.dart';
 import 'package:sarasotaapp/model/locationitem.dart';
 import 'package:sarasotaapp/uatheme.dart';
+import 'package:sarasotaapp/utils/url_luncher.dart';
 import 'package:sarasotaapp/widgets/uabutton.dart';
 import 'package:sarasotaapp/widgets/ualabel.dart';
-import 'package:url_launcher/url_launcher.dart';
+ 
  
 
 class LocationDetails extends StatefulWidget {
@@ -93,7 +94,7 @@ class _LocationDetailsState extends State<LocationDetails> {
                         } else {
                           final destination =
                               "http://maps.apple.com/?daddr=${widget.address}&dirflg=d";
-                          _launchURL(destination);
+                          launchURL(destination);
                         }
                       },
                     ),
@@ -102,7 +103,7 @@ class _LocationDetailsState extends State<LocationDetails> {
                       child: UAButton(
                         paddingLeft: 20,
                         onPressed: () {
-                          _launchURL('tel://${widget.info.url}');
+                          launchURL('tel://${widget.info.url}');
                         },
                         text: 'CALL',
                         height: 50,
@@ -125,11 +126,5 @@ class _LocationDetailsState extends State<LocationDetails> {
         ));
   }
 
-  _launchURL(String url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
+ 
 }
