@@ -3,17 +3,13 @@ import 'dart:io';
 import 'package:android_intent/android_intent.dart';
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
-import 'package:sarasotaapp/appsettings.dart';
 import 'package:sarasotaapp/model/doctor.dart';
 import 'package:sarasotaapp/pages/FindADoctor/RequestAppointment.dart';
-
 import 'package:sarasotaapp/pages/FindADoctor/helper.dart';
 import 'package:sarasotaapp/pages/FindADoctor/webservices.dart';
-import 'package:sarasotaapp/uatheme.dart';
 import 'package:sarasotaapp/utils/customLoader.dart';
 import 'package:sarasotaapp/utils/show_flushbar.dart';
 import 'package:sarasotaapp/utils/url_luncher.dart';
-import 'package:sarasotaapp/widgets/uabutton.dart';
 
 class DoctorDetailView extends StatefulWidget {
   Doctor doctor;
@@ -250,6 +246,7 @@ class _DoctorDetailViewState extends State<DoctorDetailView> {
                                     ? getDoctorInformationTileTitle(
                                         title: 'Address')
                                     : Container(),
+
                                 widget.doctor.address.street != null
                                     ? Padding(
                                         padding: const EdgeInsets.symmetric(
@@ -261,6 +258,39 @@ class _DoctorDetailViewState extends State<DoctorDetailView> {
                                         ),
                                       )
                                     : Container(),
+                                widget.doctor.address != null
+                                    ? Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 16),
+                                        child: InkWell(
+                                          child: Text(
+                                            "Get Directions",
+                                            style: TextStyle(
+                                                color: Colors.blue,
+                                                fontSize: 18),
+                                          ),
+                                          onTap: () async {
+                                            String address =
+                                                "${widget.doctor.address.street.replaceAll(" ", "+").replaceAll(",", "")}+${widget.doctor.address.city.replaceAll(" ", "+")}+${widget.doctor.address.state.replaceAll(" ", "+")}+${widget.doctor.address.postalCode.replaceAll(" ", "+")}";
+
+                                            if (Platform.isAndroid) {
+                                              final AndroidIntent intent =
+                                                  new AndroidIntent(
+                                                      action: 'action_view',
+                                                      data: Uri.encodeFull(
+                                                          "https://www.google.com/maps/place/$address"),
+                                                      package:
+                                                          'com.google.android.apps.maps');
+                                              intent.launch();
+                                            } else {
+                                              final destination =
+                                                  "http://maps.apple.com/?daddr=$address&dirflg=d";
+                                              launchURL(destination);
+                                            }
+                                          },
+                                        ),
+                                      )
+                                    : SizedBox(),
                                 widget.doctor.specialities != null
                                     ? getDoctorInformationTileTitle(
                                         title: 'Specialties')
@@ -340,46 +370,6 @@ class _DoctorDetailViewState extends State<DoctorDetailView> {
                                 //         ))
                                 //     : SizedBox(),
                                 //    widget.doctor.website != null
-                                widget.doctor.address != null
-                                    ? getDoctorInformationTileTitle(
-                                        title: 'Location')
-                                    : Container(),
-                                widget.doctor.address != null
-                                    ? Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 16),
-                                        child: InkWell(
-                                          child: Text(
-                                            "Get Directions",
-                                            style: TextStyle(
-                                                color: Colors.blue,
-                                                fontSize: 18),
-                                          ),
-                                          onTap: () async {
-                                            String address =
-                                                "${widget.doctor.address.street.replaceAll(" ", "+").replaceAll(",", "")}+${widget.doctor.address.city.replaceAll(" ", "+")}+${widget.doctor.address.state.replaceAll(" ", "+")}+${widget.doctor.address.postalCode.replaceAll(" ", "+")}";
-
-                                            if (Platform.isAndroid) {
-                                              final AndroidIntent intent =
-                                                  new AndroidIntent(
-                                                      action: 'action_view',
-                                                      data: Uri.encodeFull(
-                                                          "https://www.google.com/maps/place/$address"),
-                                                      package:
-                                                          'com.google.android.apps.maps');
-                                              intent.launch();
-                                            } else {
-                                              final destination =
-                                                  "http://maps.apple.com/?daddr=$address&dirflg=d";
-                                              launchURL(destination);
-                                            }
-                                          },
-                                        ),
-                                      )
-                                    : SizedBox(),
-                                SizedBox(
-                                  height: 50,
-                                ),
                               ],
                             ),
                           ),
