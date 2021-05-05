@@ -238,7 +238,7 @@ class _DoctorDetailViewState extends State<DoctorDetailView> {
                         ),
                         child: SingleChildScrollView(
                           child: Padding(
-                            padding: const EdgeInsets.only(top: 10),
+                            padding: const EdgeInsets.only(top: 5),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
