@@ -425,7 +425,9 @@ class _DoctorDetailViewState extends State<DoctorDetailView> {
 
   getDoctorInformationTileTitle({String title}) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+      padding: const EdgeInsets.symmetric(
+        horizontal: 16,
+      ).copyWith(top: 8),
       child: Text(
         title,
         style: TextStyle(
