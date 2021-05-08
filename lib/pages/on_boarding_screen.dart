@@ -42,7 +42,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
         PageViewModel(
           title: "Welcome!",
           body:
-              "We have rebuilt our appto offer an improved flow and easier access to the features our community uses the most.Please take a moment to swipe through some highlights!",
+              "We have rebuilt our app to offer an improved flow and easier access to the features our community uses the most. Please take a moment to swipe through some highlights!",
           image: Image.asset('assets/onboarding/smh.png'),
           decoration: pageDecoration,
         ),
@@ -68,8 +68,8 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           footer: ElevatedButton(
             onPressed: () async {
               var location = Location();
-               bool enabled = await location.serviceEnabled();
-                 LocationData locationData = await location.getLocation();
+              bool enabled = await location.serviceEnabled();
+              LocationData locationData = await location.getLocation();
               if (enabled) {
                 showSnackBar(
                     context: context,
@@ -78,7 +78,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
               } else {
                 var location = Location();
                 bool gotEnabled = await location.requestService();
-              
+
                 if (gotEnabled) {
                   showSnackBar(
                       context: context,
