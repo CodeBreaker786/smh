@@ -188,7 +188,7 @@ class LocationInfo {
     LocationItem(
       title: 'Community Specialty Clinic',
       address: '1851 Arlington Street\nSuite 208 (second floor)',
-      image: 'assets/images/Community-Specialty-Clinic.jpg',
+      image: 'assets/images/NEW-CSC.jpg',
       mapAddress: '1851+Arlington+Street+Suite+208+second+floor',
       url: '9419172566',
       latitude: 27.3175158,
@@ -254,7 +254,7 @@ class LocationInfo {
     LocationItem(
       title: 'Sarasota Memorial 3T MRI at Cattleridge',
       address: '6050 Cattleridge Blvd., Suite 102, Sarasota, FL 34232',
-      image: 'assets/images/3T-MRI.jpg',
+      image: 'assets/images/NEW-3TMRI.jpg',
       mapAddress: '6050+Cattleridge+Blvd+Suite+102+Sarasota+FL+34232',
       url: '9419524025',
       latitude: 27.3045556,
